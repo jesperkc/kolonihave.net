@@ -1,0 +1,102 @@
+// .form-checkbox,
+// .form-textarea,
+// .form-input {
+//   appearance: none;
+// }
+// input,
+// textarea {
+//   width: 100%;
+// }
+
+// label {
+//   display: block;
+// }
+// form .spacer {
+//   margin-bottom: 2em;
+// }
+
+// .save-button,
+// .login-btn,
+// .RNIW_btn[type="submit"],
+// .btn {
+//   background-color: $primary-color;
+//   border: 0;
+//   border-radius: 3px;
+//   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+//   color: #fff;
+//   cursor: pointer;
+//   font-weight: bold;
+//   padding: 20px;
+//   text-align: center;
+//   text-transform: uppercase;
+// }
+// .btn[disabled] {
+//   background-color: #aaa;
+//   cursor: default;
+// }
+// .login-btn {
+//   margin: 0 auto;
+//   display: block;
+//   background-color: $primary-color;
+// }
+// button[type="submit"]:hover,
+// button[type="submit"]:focus {
+//   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+// }
+
+// form .btn {
+// 	display: block;
+// 	position: relative;
+// 	width: 100%;
+// 	height: auto;
+// 	padding: 6px;
+// 	/* outline: 0; */
+// 	cursor: pointer;
+// 	border-radius: 4px;
+// 	background-color: #2d3b41;
+// 	color: #fff;
+// 	transition: background-color 0.2s ease;
+// 	line-height: 24px;
+// 	text-align: center;
+// 	text-decoration: none;
+// 	white-space: nowrap;
+// }
+
+// .form-label {
+//   @apply .text-gray-700;
+// }
+// .form-small {
+//   @apply .text-gray-700;
+// }
+
+.btn {
+  border: 0;
+  outline: none;
+  padding: 10px 20px;
+  color: #ffffff;
+  position: relative;
+  border-radius: 14px;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+  &:before {
+    border-radius: 4px/50%;
+    background-color: inherit;
+    top: 2px;
+    bottom: 2px;
+    right: -2px;
+    left: -2px;
+  }
+  &:after {
+    border-radius: 50%/4px;
+    background-color: inherit;
+    top: -2px;
+    bottom: -2px;
+    right: 2px;
+    left: 2px;
+  }
+}

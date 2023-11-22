@@ -1,0 +1,113 @@
+.mdx {
+  background-color: inherit;
+
+  --headlineColor: var(--headlineColorLight, --basecolor);
+  @media (prefers-color-scheme: dark) {
+    --headlineColor: var(--headlineColorDark, --basecolor);
+  }
+
+  article {
+    // max-width: 1024px;
+    // margin: 0 auto;
+    // min-height: 100vh;
+    // padding: 2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 6rem;
+
+    color: var(--headlineColor);
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+  h5 {
+    font-size: 1.5rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+
+  p {
+    line-height: 1.2;
+  }
+
+  h1 + p {
+    margin-bottom: 3rem;
+  }
+
+  p + h2,
+  p + h3,
+  p + h4 {
+    margin-top: 2rem;
+  }
+
+  blockquote {
+    // font-style: italic;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    // border-bottom: 3px solid var(--color);
+  }
+  article > ul,
+  article > ol {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  article > img {
+    width: 40%;
+    float: right;
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+
+  ol {
+    padding-left: 5rem;
+  }
+  li::marker,
+  li > h3 {
+    font-size: 2rem;
+    font-family: var(--headerfont), serif;
+
+    color: var(--headlineColor);
+  }
+
+  .calendar-year {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+
+// .backbutton {
+//   position: fixed;
+//   top: 1rem;
+//   left: 1rem;
+//   z-index: 10;
+//   padding: 1rem;
+//   font-size: 2rem;
+//   font-weight: bold;
+//   fill: var(--headlineColor);
+//   line-height: 1rem;
+//   border-radius: 100px;
+
+//   svg {
+//     width: 30px;
+//     height: auto;
+//   }
+// }

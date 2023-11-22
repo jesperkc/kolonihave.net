@@ -1,0 +1,55 @@
+.fluid-container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  @media (min-width: 1240px) {
+    padding: auto;
+    margin: 0 auto;
+  }
+}
+
+h1 {
+  @apply text-2xl;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+}
+a {
+  @apply text-blue-600 underline;
+}
+
+.flex {
+  display: flex;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  min-height: 100vh;
+}
+.add-allotment {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+}
+.fill-height {
+  flex: 1 1 100%;
+  height: 100%;
+}
+
+.footer-button {
+  margin-top: 1rem;
+  @media (max-width: $mobile-layout-breakpoint) {
+    position: fixed;
+    z-index: $z-footer-button;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 !important;
+    line-height: 4rem;
+  }
+}

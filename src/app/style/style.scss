@@ -1,0 +1,461 @@
+// 1. Import the initial variables
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+
+// 2. Set your own initial variables
+
+$body-background-color: red;
+// Update blue
+$blue: #72d0eb;
+// Add pink and its invert
+$pink: #ffb3b3;
+$pink-invert: #fff;
+// Add a serif family
+$family-serif: "Merriweather", "Georgia", serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+$primary-invert: $pink-invert;
+// Use the existing orange as the danger color
+$danger: $orange;
+// Use the new serif family
+$family-primary: $family-serif;
+
+// 4. Setup your Custom Colors
+$linkedin: #0077b5;
+$linkedin-invert: findColorInvert($linkedin);
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$github: #333;
+$github-invert: findColorInvert($github);
+
+// 5. Add new color variables to the color map.
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+$addColors: (
+  "twitter": (
+    $twitter,
+    $twitter-invert,
+  ),
+  "linkedin": (
+    $linkedin,
+    $linkedin-invert,
+  ),
+  "github": (
+    $github,
+    $github-invert,
+  ),
+);
+$colors: map-merge($colors, $addColors);
+
+// 6. Import the rest of Bulma
+@import "../../node_modules/bulma/bulma.sass";
+
+// @import "variables";
+// // @import 'react-alice-carousel/lib/scss/alice-carousel.scss';
+// @import "layout";
+// // @import 'login';
+@import "form";
+// @import "modal";
+// @import "allotment";
+@import "edit-allotment";
+@import "mdx-style";
+// @import "navigation";
+
+:root {
+  --backgroundColorLight: #ddd7cd;
+  --backgroundColorDark: #1f1c19;
+  --contentBackgroundColorLight: #42554b;
+  --contentBackgroundColorDark: #1f1c19;
+  --colorLight: #333333;
+  --colorDark: #f3e8d2;
+  --headlineColorLight: var(--colorLight);
+  --headlineColorDark: var(--colorDark);
+
+  --backgroundColorBox: var(--backgroundColor);
+  --contentBackgroundColor: var(--contentBackgroundColorLight);
+  --backgroundColor: var(--backgroundColorLight);
+  --basecolor: var(--colorLight);
+  --headlineColor: var(--basecolor);
+  --linkColor: #ff701d;
+  --linkColorHover: #ffaf81;
+
+  @media (prefers-color-scheme: dark) {
+    --backgroundColor: var(--backgroundColorDark);
+    --basecolor: var(--colorDark);
+    --contentBackgroundColor: var(--contentBackgroundColorDark);
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html body,
+html {
+  min-height: 100%;
+  margin: 0;
+  background-color: var(--backgroundColor);
+  color: var(--basecolor);
+  font-family: Helvetica, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+}
+
+body a {
+  color: var(--linkColor);
+  &:hover {
+    color: var(--linkColorHover);
+  }
+}
+
+nav {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  width: 100%;
+  font-family: var(--headerfont), serif;
+  & > div {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    height: 6rem;
+
+    li {
+      a,
+      a:hover,
+      a:visited {
+        color: var(--basecolor);
+      }
+    }
+  }
+
+  .logo {
+    margin: 0 auto;
+    font-size: 1.25rem;
+  }
+
+  .wobbly {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.page-wrapper {
+  margin: 6rem 0;
+}
+
+main {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 3rem;
+  font-family: var(--headerfont);
+}
+.hero {
+  position: relative;
+  margin: 0 auto;
+  margin-top: -5px;
+  padding-top: 3rem;
+  background-color: var(--contentBackgroundColor);
+  background-size: cover;
+  margin-bottom: 100px;
+  font-family: var(--headerfont);
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='1440' height='38' viewBox='0 0 1440 38' preserveAspectRatio='none' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M89 10C50 10 39.9933 16.2206 0 15V38L1440 38V15C1418.5 15.5 1308 0 1248.5 0C1189 0 1077.5 24.5 998 24.5C936 24.5 915 16 773.5 16C610.293 16 617.216 7.5 454.5 7.5C409.5 7.5 372 18.5 340.5 18.5C309 18.5 128 10 89 10Z' fill='%23DDD7CD'/%3E%3C/svg%3E%0A");
+    height: 20px;
+    width: 100%;
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.breadcrumbs {
+  display: flex;
+  margin-bottom: 2rem;
+  div + div:before {
+    content: "/";
+    padding: 0 0.5rem;
+  }
+  a {
+    color: var(--headlineColor, --linkColor);
+  }
+
+  svg {
+    height: 1rem;
+    width: auto;
+    position: absolute;
+    transform: translate(calc(-100% - 1rem), 0.2rem);
+
+    fill: var(--headlineColor);
+  }
+}
+
+h1 {
+  font-size: 6rem;
+
+  color: var(--basecolor);
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+h4 {
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  &.calendar-year-posts {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.allotments-map {
+  .mapboxgl-map {
+    height: 100%;
+  }
+}
+
+.top-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+ul.dash-list {
+  padding-left: 1rem;
+  li {
+    padding: 5px 0;
+  }
+  li::before {
+    content: "- ";
+  }
+}
+
+.landingpage-grid {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 30px;
+  align-items: end;
+  margin-bottom: -100px;
+
+  .grid-column {
+    display: flex;
+    width: 100%;
+  }
+
+  @media screen and (width > 800px) {
+    flex-direction: row;
+
+    .grid-column {
+      width: 50%;
+    }
+  }
+
+  .column-right {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.landingpage-hero-illustration {
+  display: none;
+
+  @media screen and (width > 800px) {
+    display: block;
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+
+    #fill-group path {
+      fill: #fff2dd;
+    }
+  }
+}
+
+.superellipse {
+  --backgroundColor: var(--backgroundColorBox, #ffffff);
+  --borderColor: var(--borderColorBox, --backgroundColor);
+  --color: var(--colorBox, #15130e);
+
+  @media (prefers-color-scheme: dark) {
+    --backgroundColor: var(--colorBox, #15130e);
+    --borderColor: var(--backgroundColorBox, --backgroundColor);
+    --color: var(--backgroundColorBox, #ffffff);
+  }
+
+  $border-width: 3px;
+  $border-corner-width: 1px;
+  // border: $border-corner-width solid #58cdd0;
+
+  // border: 0;
+  outline: none;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+  border-radius: 9px;
+  background-color: var(--backgroundColor);
+  color: var(--color);
+
+  box-shadow: $border-width $border-width var(--borderColor), -$border-width (-$border-width) var(--borderColor),
+    -$border-width $border-width var(--borderColor), $border-width (-$border-width) var(--borderColor);
+
+  h5 {
+    margin-bottom: 1rem;
+  }
+  a,
+  a:visited {
+    color: var(--color);
+    text-decoration: underline;
+  }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    // border: $border-width solid #58cdd0;
+  }
+  &:before {
+    border-radius: 4px/50%;
+    background-color: inherit;
+    top: 2px;
+    bottom: 2px;
+    right: -$border-width;
+    left: -$border-width;
+    box-shadow: -$border-width 0px var(--borderColor), $border-width 0px var(--borderColor);
+    // border-top-color: transparent;
+    // border-top-width: $border-corner-width;
+    // border-bottom-color: transparent;
+    // border-bottom-width: $border-corner-width;
+    // border-left-color: inherit;
+    // border-right-color: inherit;
+  }
+  &:after {
+    border-radius: 50%/4px;
+    background-color: inherit;
+    top: -$border-width;
+    bottom: -$border-width;
+    right: 2px;
+    left: 2px;
+    box-shadow: 0px (-$border-width) var(--borderColor), 0px $border-width var(--borderColor);
+    // border-top-color: inherit;
+    // border-bottom-color: inherit;
+    // border-left-color: transparent;
+    // border-right-color: transparent;
+    // border-left-width: $border-corner-width;
+    // border-right-width: $border-corner-width;
+  }
+}
+
+.wobble-border {
+  border: 5px solid black;
+  border-image: url("data:image/svg+xml,%3Csvg width='500' height='506' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M499.487 3.35792L499.014 3.32879L495.658 3.15421L493.18 3.18913L486.506 3.48011L481.689 3.48593L441.625 2.13578L435.328 2.12996L420.845 2.677L401.048 3.61977L376.452 4.77207L363.125 5.21437L351.186 5.42969L347.282 5.38895L341.936 5.17945L336.593 4.96992L332.692 4.92918L326.392 4.90591L288.567 4.11446L273.401 3.96897L258.783 3.97479L237.685 4.23668L227.733 4.35887L214.122 4.38796L197.454 4.44035L185.263 4.66733L179.924 4.72551L173.825 4.80699L165.809 4.96413L158.502 4.78369L146.465 4.35305L130.012 4.07372L120.607 3.9457L120.059 3.93405L92.0256 3.61398L81.025 3.67216L70.44 3.87583L56.8891 4.37052L49.2636 4.61493L40.8982 4.67894L31.7898 4.56258L21.9383 4.26577L17.1306 4.2483L11.8885 4.52766L6.20871 5.11541L0.0944492 6L0.00944492 5.95926L0 5.79633L0.0283348 5.61592L0.0346282 5.5868L0.0566695 5.56936L6.58652 4.03297L10.1317 3.40445L12.6095 3.13094L15.484 2.64791L17.5368 2.3744L20.5719 2.17652L29.5795 2.00777L39.1256 2.08342L50.9354 2.14743L59.5621 1.91463L68.5698 1.54221L77.7979 1.28614L87.2904 1.14644L97.1828 1.12318L118.202 1.40833L146.73 2.22309L159.604 2.61882L172.537 2.77596L188.887 2.53733L195.993 2.45006L205.703 2.4675H218.558L253.71 2.17652L284.357 2.16487L311.657 2.42676L335.916 2.96219L348.743 3.25317L357.168 3.21825L374.976 2.57808L399.322 1.50729L428.637 0.238588L438.605 0L446.977 0.122224L467.88 1.01843L488.776 2.0776L494.251 2.52572L499.49 3.24734L500 3.35792H499.487Z' fill='%23080808'/%3E%3Cpath d='M0.513243 502.642L0.985508 502.671L4.34171 502.846L6.81957 502.811L13.4942 502.52L18.3114 502.514L58.3752 503.864L64.6721 503.87L79.1549 503.323L98.9522 502.38L123.548 501.228L136.875 500.786L148.814 500.57L152.718 500.611L158.064 500.821L163.407 501.03L167.308 501.071L173.608 501.094L211.433 501.886L226.599 502.031L241.217 502.025L262.315 501.763L272.267 501.641L285.878 501.612L302.546 501.56L314.737 501.333L320.076 501.274L326.175 501.193L334.191 501.036L341.498 501.216L353.535 501.647L369.988 501.926L379.393 502.054L379.941 502.066L407.974 502.386L418.975 502.328L429.56 502.124L443.111 501.629L450.736 501.385L459.102 501.321L468.21 501.437L478.062 501.734L482.869 501.752L488.112 501.472L493.791 500.885L499.906 500L499.991 500.041L500 500.204L499.972 500.384L499.965 500.413L499.943 500.431L493.413 501.967L489.868 502.596L487.391 502.869L484.516 503.352L482.463 503.626L479.428 503.823L470.42 503.992L460.874 503.917L449.065 503.853L440.438 504.085L431.43 504.458L422.202 504.714L412.71 504.854L402.817 504.877L381.798 504.592L353.27 503.777L340.396 503.381L327.463 503.224L311.113 503.463L304.007 503.55L294.297 503.532L281.442 503.532L246.29 503.823L215.643 503.835L188.343 503.573L164.084 503.038L151.257 502.747L142.832 502.782L125.024 503.422L100.678 504.493L71.3625 505.761L61.3945 506L53.0229 505.878L32.1204 504.982L11.2242 503.922L5.74905 503.474L0.510091 502.753L7.79386e-06 502.642L0.513243 502.642Z' fill='%23080808'/%3E%3Cpath d='M2.64206 505.487L2.67119 505.014L2.84577 501.658L2.81085 499.18L2.51987 492.506L2.51405 487.689L3.8642 447.625L3.87003 441.328L3.32298 426.845L2.38021 407.048L1.22791 382.452L0.785615 369.125L0.570293 357.186L0.611035 353.282L0.820532 347.936L1.03006 342.593L1.07081 338.692L1.09407 332.392L1.88553 294.567L2.03102 279.401L2.0252 264.783L1.76331 243.685L1.64112 233.733L1.61203 220.122L1.55964 203.454L1.33267 191.263L1.27448 185.924L1.193 179.825L1.03586 171.809L1.2163 164.502L1.64695 152.465L1.92628 136.012L2.05429 126.607L2.06594 126.059L2.38602 98.0256L2.32783 87.025L2.12416 76.44L1.62948 62.8891L1.38506 55.2636L1.32106 46.8982L1.43742 37.7898L1.73423 27.9383L1.7517 23.1306L1.47234 17.8885L0.884589 12.2087L-2.69545e-07 6.09445L0.0407412 6.00944L0.203671 6L0.384077 6.02833L0.413204 6.03463L0.430644 6.05667L1.96703 12.5865L2.59555 16.1317L2.86905 18.6095L3.35209 21.484L3.62559 23.5368L3.82348 26.5719L3.99223 35.5795L3.91657 45.1256L3.85257 56.9354L4.08536 65.5621L4.45779 74.5698L4.71385 83.7979L4.85355 93.2904L4.87682 103.183L4.59166 124.202L3.7769 152.73L3.38118 165.604L3.22403 178.537L3.46266 194.887L3.54993 201.993L3.53249 211.703L3.53249 224.558L3.82347 259.71L3.83512 290.357L3.57323 317.657L3.0378 341.916L2.74682 354.743L2.78173 363.168L3.42191 380.976L4.49269 405.322L5.76139 434.637L5.99998 444.605L5.87776 452.977L4.98155 473.88L3.92238 494.776L3.47426 500.251L2.75263 505.49L2.64206 506L2.64206 505.487Z' fill='%23080808'/%3E%3Cpath d='M497.358 0.513243L497.329 0.985508L497.154 4.34171L497.189 6.81957L497.48 13.4942L497.486 18.3114L496.136 58.3752L496.13 64.6721L496.677 79.1549L497.62 98.9522L498.772 123.548L499.214 136.875L499.43 148.814L499.389 152.718L499.179 158.064L498.97 163.407L498.929 167.308L498.906 173.608L498.114 211.433L497.969 226.599L497.975 241.217L498.237 262.315L498.359 272.267L498.388 285.878L498.44 302.546L498.667 314.737L498.726 320.076L498.807 326.175L498.964 334.191L498.784 341.498L498.353 353.535L498.074 369.988L497.946 379.393L497.934 379.941L497.614 407.974L497.672 418.975L497.876 429.56L498.371 443.111L498.615 450.736L498.679 459.102L498.563 468.21L498.266 478.062L498.248 482.869L498.528 488.112L499.115 493.791L500 499.906L499.959 499.991L499.796 500L499.616 499.972L499.587 499.965L499.569 499.943L498.033 493.413L497.404 489.868L497.131 487.391L496.648 484.516L496.374 482.463L496.177 479.428L496.008 470.42L496.083 460.874L496.147 449.065L495.915 440.438L495.542 431.43L495.286 422.202L495.146 412.71L495.123 402.817L495.408 381.798L496.223 353.27L496.619 340.396L496.776 327.463L496.537 311.113L496.45 304.007L496.468 294.297L496.468 281.442L496.177 246.29L496.165 215.643L496.427 188.343L496.962 164.084L497.253 151.257L497.218 142.832L496.578 125.024L495.507 100.678L494.239 71.3625L494 61.3945L494.122 53.0229L495.018 32.1204L496.078 11.2242L496.526 5.74905L497.247 0.510091L497.358 7.94064e-06L497.358 0.513243Z' fill='%23080808'/%3E%3C/svg%3E%0A")
+    1% stretch;
+  border-radius: 5px;
+  padding: 30px;
+  background-color: var(--backgroundColorBox, --backgroundColor);
+  color: var(--colorBox, --color);
+}
+
+.wobble-round {
+  border: 2px solid black;
+  background-color: var(--backgroundColorBox, --backgroundColor);
+  color: var(--colorBox, --color);
+
+  position: relative;
+  border-radius: 1000px;
+  padding: 14px;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 1000px;
+    pointer-events: none;
+  }
+  &:before {
+    transform: translate(5px, 0) scale(1.03);
+  }
+  &:after {
+    transform: translate(0, -10px) scale(1.03);
+  }
+}
+
+.homescreen {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+
+  &.-hide {
+    opacity: 0;
+  }
+}
+
+.mapMarkerStyle {
+  width: 1px;
+  height: 1px;
+  display: block;
+  position: relative;
+  border-radius: 100%;
+}
+
+.mapMarkerStyle::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #c94c4c;
+  border: 2px solid white;
+}
