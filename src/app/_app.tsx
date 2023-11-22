@@ -1,4 +1,4 @@
-import SharedLayout from "../../pages/layout";
+import SharedLayout from "./layout";
 
 export default function RootLayout({ Component, pageProps }) {
   return (

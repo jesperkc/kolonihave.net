@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{\"/_app\":[\"static/media/646144a5d0653544-s.p.woff2\"]},\"app\":{\"/Users/jesperklitgaard/Documents/Projects/websites/kolonihave.net/kolonihave.net-react-firebase/src/app/layout\":[\"static/media/504fdf5b4c2a54ef-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":true}"
