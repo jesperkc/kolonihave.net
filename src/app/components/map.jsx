@@ -39,7 +39,6 @@ const MapComponent = ({ children, onLocationChange, lat, lng, zoom, className = 
     zoom: [5],
     // zoom: [zoom || mapSettings.minZoom],
   });
-  console.log(children);
   return (
     <div className={`map-container ${className}`}>
       <Map

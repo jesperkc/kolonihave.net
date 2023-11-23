@@ -5,7 +5,13 @@ function MonthlyBlog(props) {
   return (
     <div
       className="wobble-round monthly-blog"
-      style={{ "--backgroundColorBox": props.backgroundColor, "--colorBox": props.color, "--borderColorBox": props.color }}
+      style={{
+        "--backgroundColorBoxLight": props.backgroundColor,
+        "--colorBoxLight": props.color,
+        "--backgroundColorBoxDark": props.color,
+        "--colorBoxDark": props.backgroundColor,
+        "--borderColorBox": props.color,
+      }}
     >
       <h5>{props.title}</h5>
       <p>{props.desc}</p>

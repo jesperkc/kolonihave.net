@@ -33,8 +33,8 @@ const postFilePaths = fs
 export default function PostPage({ source, meta }) {
   useEffect(() => {
     if (meta.backgroundColor) {
-      document.documentElement.style.setProperty("--contentBackgroundColorLight", meta.backgroundColor);
-      document.documentElement.style.setProperty("--contentBackgroundColorDark", meta.color);
+      document.documentElement.style.setProperty("--backgroundColorLight", meta.backgroundColor);
+      document.documentElement.style.setProperty("--backgroundColorDark", meta.color);
     }
     if (meta.color) {
       document.documentElement.style.setProperty("--headlineColorLight", meta.color);
@@ -42,8 +42,8 @@ export default function PostPage({ source, meta }) {
     }
 
     return () => {
-      document.documentElement.style.setProperty("--contentBackgroundColorLight", "");
-      document.documentElement.style.setProperty("--contentBackgroundColorDark", "");
+      document.documentElement.style.setProperty("--backgroundColorLight", "");
+      document.documentElement.style.setProperty("--backgroundColorDark", "");
       document.documentElement.style.setProperty("--headlineColorLight", "");
       document.documentElement.style.setProperty("--headlineColorDark", "");
     };

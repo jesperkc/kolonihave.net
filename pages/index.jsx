@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import VegestableIllustrationSvg from "/src/assets/svg/illustration-vegestables.svg";
+import Link from "next/link";
 
 const components = {
   // It also works with dynamically-imported components, which is especially
@@ -29,18 +30,19 @@ function Page(props) {
     return randomtip.content;
   };
 
-  console.log(props);
   return (
     <div>
       <div className="hero" style={{ backgroundImage: `url(${props.heroes.urls[3]})` }}>
         <main>
           <div className="landingpage-grid">
             <div className="grid-column">
-              <div className="wobble-border" style={{ "--backgroundColorBox": "#fff2dd" }}>
+              <div className="wobble-border landingpage-box">
                 <h5>Gode råd</h5>
                 <ul className="dash-list">
                   {props.goodadvice.posts.map((advice) => (
-                    <li>{advice.meta.title}</li>
+                    <li>
+                      <Link href={`${advice.url}`}>{advice.meta.title}</Link>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -78,7 +80,6 @@ async function getMdx(filepath, file) {
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
-  console.log("content", content);
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
@@ -92,8 +93,8 @@ async function getMdx(filepath, file) {
     source: mdxSource,
     content: content,
     meta: data,
-    // add the slug to the frontmatter info
-    // slug: file.replace(".mdx", ""),
+    url: postFilePath.replace(".mdx", "").replace("database/", ""),
+    slug: file.replace(".mdx", ""),
   };
 }
 
