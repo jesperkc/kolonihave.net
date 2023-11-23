@@ -1,1 +1,8 @@
+[[plugins]]
+package = "@netlify/plugin-sitemap"
 
+[plugins.inputs]
+exclude = [
+  # By file Path
+  './kolonihaver-til-salg.html',
+]
