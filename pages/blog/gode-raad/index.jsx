@@ -12,7 +12,8 @@ function Page(props) {
   return (
     <main>
       <h1>Gode råd til kolonihaven</h1>
-      <ul>
+      <br />
+      <ul className="dash-list">
         {props.posts &&
           props.posts.map((post, i) => {
             return (

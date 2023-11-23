@@ -2,7 +2,7 @@ const WobblyLine = ({ className }) => {
   return (
     <svg
       className={className}
-      height="6"
+      height="3"
       width="1440"
       viewBox="0 0 1440 6"
       fill="none"

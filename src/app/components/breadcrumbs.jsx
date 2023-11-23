@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ArrowSvg from "/src/assets/svg/arrows.svg";
+import ArrowSvg from "/src/assets/svg/icon-arrow.svg";
 
 export default function Breadcrumbs({ crumbs }) {
   let href = ["/"];

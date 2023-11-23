@@ -11,9 +11,9 @@ function Page(props) {
   const months = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
   return (
     <main>
-      <h1>Blog</h1>
       <h2>Gode råd</h2>
-      <ul className="blog-posts">
+      <br />
+      <ul className="dash-list">
         {props.goodadvice.posts &&
           props.goodadvice.posts.map((post, i) => {
             return (
@@ -23,7 +23,10 @@ function Page(props) {
             );
           })}
       </ul>
+      <br />
+      <br />
       <h2>Året i kolonihaven</h2>
+      <br />
       <ul className="blog-posts calendar-year-posts">
         {months.map((post, i) => {
           return (
