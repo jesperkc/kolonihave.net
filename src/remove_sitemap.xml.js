@@ -35,7 +35,7 @@ function generateSiteMap(posts) {
        <loc>https://kolonihave.net/blog</loc>
      </url>
      <url>
-       <loc>https://kolonihave.net/blog/gode-raad</loc>
+       <loc>https://kolonihave.net/blog/inspiration</loc>
      </url>
      <url>
        <loc>https://kolonihave.net/blog/aaret-i-haven</loc>
@@ -58,7 +58,7 @@ function SiteMap() {
 export async function getServerSideProps({ res }) {
   const paths = [
     {
-      path: "database/blog/gode-raad/",
+      path: "database/blog/inspiration/",
     },
     {
       path: "database/blog/aaret-i-haven/",

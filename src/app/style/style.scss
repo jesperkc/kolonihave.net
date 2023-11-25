@@ -84,7 +84,7 @@ $colors: map-merge($colors, $addColors);
   --basecolor: var(--colorLight);
   --headlineColor: var(--basecolor);
   --linkColor: var(--linkColorLight);
-  --linkColorHover: var(--linkColorHoverDark);
+  --linkColorHover: var(--linkColorHoverLight);
 
   @media (prefers-color-scheme: dark) {
     --backgroundColor: var(--backgroundColorDark);
@@ -107,6 +107,8 @@ html {
   background-color: var(--backgroundColor);
   color: var(--basecolor);
   font-family: Helvetica, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+
+  transition: background-color 200ms, color 200ms;
 }
 
 body a {
@@ -214,6 +216,7 @@ ul {
 
 .breadcrumbs {
   display: flex;
+  align-items: center;
   margin-bottom: 2rem;
   position: relative;
   div + div:before {
@@ -223,13 +226,14 @@ ul {
   a {
     color: var(--headlineColor, --linkColor);
   }
+  a:hover {
+    color: var(--headlineColor);
+  }
 
   svg {
     display: none;
     width: auto;
-    position: absolute;
-    top: 50%;
-    transform: translate(calc(-100% - 1rem), -50%);
+    margin: 0 1rem 0 0.5rem;
 
     path {
       stroke: var(--headlineColor);
@@ -300,17 +304,21 @@ ul.dash-list {
   padding-left: 1rem;
   li {
     padding: 5px 0;
-    position: relative;
+    transition: transform 200ms;
   }
-  li::before {
-    content: "- ";
-    position: absolute;
-    left: -1rem;
+  a::before {
+    content: "~ ";
+    margin-left: -0.8rem;
+    color: inherit;
   }
 
   li:hover {
     transform: translateX(10px);
     display: inline-block;
+  }
+
+  a {
+    padding: 5px 0;
   }
 }
 
@@ -318,7 +326,7 @@ ul.dash-list {
   display: flex;
   flex-direction: column-reverse;
   gap: 30px;
-  align-items: end;
+  align-items: flex-end;
   margin-bottom: -100px;
 
   .grid-column {
@@ -351,7 +359,7 @@ ul.dash-list {
     max-width: 100%;
     height: auto;
 
-    #fill-group path {
+    path[fill="#fff"] {
       fill: #fff2dd;
     }
   }

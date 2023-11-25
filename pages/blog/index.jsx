@@ -11,14 +11,14 @@ function Page(props) {
   const months = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
   return (
     <main>
-      <h2>Gode råd</h2>
+      <h2>Inspiration</h2>
       <br />
       <ul className="dash-list">
-        {props.goodadvice.posts &&
-          props.goodadvice.posts.map((post, i) => {
+        {props.inspiration.posts &&
+          props.inspiration.posts.map((post, i) => {
             return (
               <li key={post.title}>
-                <Link href={`/blog/gode-raad/${post.slug}`}>{post.title}</Link>
+                <Link href={`/blog/inspiration/${post.slug}`}>{post.title}</Link>
               </li>
             );
           })}
@@ -43,8 +43,8 @@ function Page(props) {
 export async function getStaticProps() {
   const paths = [
     {
-      id: "goodadvice",
-      path: "database/blog/gode-raad/",
+      id: "inspiration",
+      path: "database/blog/inspiration/",
     },
     // {
     //   id: "calendaryear",

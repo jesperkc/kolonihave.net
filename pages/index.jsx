@@ -7,7 +7,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import VegestableIllustrationSvg from "/src/assets/svg/illustration-vegestables.svg";
+import VegestableIllustrationSvg from "/public/images/illustrations/illustration-vegestables.svg";
 import Link from "next/link";
 
 const components = {
@@ -37,10 +37,10 @@ function Page(props) {
           <div className="landingpage-grid">
             <div className="grid-column">
               <div className="wobble-border landingpage-box">
-                <h5>Gode råd</h5>
+                <h5>Inspiration</h5>
                 <ul className="dash-list">
-                  {props.goodadvice.posts.map((advice) => (
-                    <li>
+                  {props.inspiration.posts.map((advice) => (
+                    <li key={advice.url}>
                       <Link href={`${advice.url}`}>{advice.meta.title}</Link>
                     </li>
                   ))}
@@ -103,10 +103,12 @@ export const getStaticProps = async ({ params }) => {
     {
       id: "quicktips",
       path: "database/quicktips/",
+      sort: false,
     },
     {
-      id: "goodadvice",
-      path: "database/blog/gode-raad",
+      id: "inspiration",
+      path: "database/blog/inspiration",
+      sort: true,
     },
   ];
   const urls = [
@@ -150,6 +152,8 @@ export const getStaticProps = async ({ params }) => {
     };
   }
 
+  const season = Math.floor((new Date().getMonth() + 4) / 3);
+
   for (const element of paths) {
     // get all MDX files
     const postFilePaths = fs.readdirSync(element.path).filter((postFilePath) => {
@@ -162,6 +166,20 @@ export const getStaticProps = async ({ params }) => {
     for (const postFilePath of postFilePaths) {
       const returnMdx = await getMdx(`${element.path}`, postFilePath);
       postPreviews.push(returnMdx);
+    }
+
+    if (element.sort) {
+      postPreviews.sort(function (m1, m2) {
+        var n1 = m1.meta.season,
+          n2 = m2.meta.season;
+        if (n1 < season) {
+          n1 = n1 + 4;
+        }
+        if (n2 < season) {
+          n2 = n2 + 4;
+        }
+        return n1 - n2;
+      });
     }
 
     returnData[element.id] = {

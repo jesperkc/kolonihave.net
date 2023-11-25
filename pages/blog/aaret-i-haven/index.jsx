@@ -4,14 +4,28 @@ import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
+import Breadcrumbs from "../../../src/app/components/breadcrumbs";
 // import LabHewro from '@/components/lab-hero.component'
 // import Section from '@/components/section.component'
 
 function Garden(props) {
   const thismonth = new Date().getMonth();
   const months = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
+
+  const breadcrumbs = [
+    {
+      title: "Blog",
+      slug: "blog",
+    },
+    {
+      title: "Året i haven",
+      slug: "aaret-i-haven",
+    },
+  ];
+
   return (
     <main className={["calendar-year-grid", styles.mdx].join(" ")}>
+      <Breadcrumbs crumbs={breadcrumbs} />
       <h1 className="has-text-centered">Årets gang i kolonihaven</h1>
       <ul>
         {months.map((month, i) => {

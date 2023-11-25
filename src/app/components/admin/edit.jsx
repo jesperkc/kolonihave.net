@@ -362,8 +362,8 @@ const EditAllotment = ({ allotment_data }) => {
           <div className="spacer"></div>
           <div className="form-label mb-2">Installationer</div>
 
-          <div class="columns">
-            <div class="column is-half">
+          <div className="columns">
+            <div className="column is-half">
               <Checkbox value={allotment.hasKitchen} name="hasKitchen" label="Køkken" />
               <br />
               <Checkbox value={allotment.hasToilet} name="hasToilet" label="Toilet" />

@@ -8,6 +8,7 @@ import Link from "next/link";
 import path from "path";
 import { useEffect } from "react";
 import Breadcrumbs from "../../../src/app/components/breadcrumbs";
+import BlogTopGallery from "../../../src/app/components/blog-top-gallery";
 
 import "../../../src/app/style/globals.css";
 
@@ -20,10 +21,15 @@ const components = {
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
   // TestComponent: dynamic(() => import('../../components/TestComponent')),
+  // img: (props) => (
+  //   // height and width are part of the props, so they get automatically passed here with {...props}
+  //   <Image {...props} layout="responsive" loading="lazy" />
+  // ),
+  BlogTopGallery,
   Head,
 };
 
-const POSTS_PATH = path.join(process.cwd(), "database", "blog", "gode-raad");
+const POSTS_PATH = path.join(process.cwd(), "database", "blog", "inspiration");
 
 const postFilePaths = fs
   .readdirSync(POSTS_PATH)
@@ -32,9 +38,10 @@ const postFilePaths = fs
 
 export default function PostPage({ source, meta }) {
   useEffect(() => {
-    // document.documentElement.style.setProperty("--backgroundColor", meta.backgroundColor ? meta.backgroundColor : "#dad3cd");
+    document.documentElement.style.setProperty("--color", meta.color ? meta.color : "");
 
     return () => {
+      document.documentElement.style.setProperty("--color", "");
       document.documentElement.style.setProperty("--contentBackgroundColor", "");
     };
   });
@@ -45,8 +52,8 @@ export default function PostPage({ source, meta }) {
       slug: "blog",
     },
     {
-      title: "Gode råd",
-      slug: "gode-raad",
+      title: "Inspiration",
+      slug: "inspiration",
     },
     {
       title: meta.title,
@@ -57,15 +64,12 @@ export default function PostPage({ source, meta }) {
     <main
       className={["mdx"].join(" ")}
       // style={{ '--headerfont': bodyfont.style.fontFamily }}
-      style={{
-        "--color": meta.color ? meta.color : "",
-      }}
     >
       <article>
         <Breadcrumbs crumbs={breadcrumbs} />
         <h1>{meta.title}</h1>
 
-        <h2>{meta.desc}</h2>
+        {meta.desc && <h2>{meta.desc}</h2>}
         {meta.image && <img src={meta.image} alt={"Illustration"} />}
         <MDXRemote {...source} components={components} />
         {/* <Section
