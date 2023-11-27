@@ -1,8 +1,8 @@
 // import type { Metadata } from "next";
 import { Fauna_One } from "next/font/google";
-import Nav from "./components/nav";
-import "./style/globals.css";
-import "./style/style.scss";
+import Nav from "../src/app/components/nav";
+import "../src/app/style/globals.css";
+import "../src/app/style/style.scss";
 
 const bodyfont = Fauna_One({ subsets: ["latin"], weight: "400" });
 

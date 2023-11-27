@@ -74,9 +74,9 @@ $colors: map-merge($colors, $addColors);
   --backgroundColorBoxLight: var(--backgroundColorLight);
   --backgroundColorBoxDark: var(--backgroundColorDark);
   --linkColorLight: #ff701d;
-  --linkColorDark: #24d696;
+  --linkColorDark: #eec86f;
   --linkColorHoverLight: #c1642f;
-  --linkColorHoverDark: #8cf2cd;
+  --linkColorHoverDark: #f6d996;
 
   --backgroundColorBox: var(--backgroundColor);
   --contentBackgroundColor: var(--contentBackgroundColorLight);
@@ -497,9 +497,17 @@ ul.dash-list {
     background-color: #695940;
   }
 
-  a,
-  a:hover {
+  li a,
+  li a:hover {
     color: var(--basecolor);
+  }
+
+  a > svg {
+    vertical-align: middle;
+    margin-left: 6px;
+    path {
+      stroke: var(--linkColor);
+    }
   }
 }
 
@@ -534,4 +542,22 @@ ul.dash-list {
   transform: translate(-50%, -50%);
   background-color: #c94c4c;
   border: 2px solid white;
+}
+
+.external-link {
+  svg {
+    vertical-align: baseline;
+    width: 0.8em;
+    height: 0.8em;
+
+    path {
+      stroke: var(--linkColor);
+    }
+  }
+
+  &:hover {
+    path {
+      stroke: var(--linkColorHover);
+    }
+  }
 }

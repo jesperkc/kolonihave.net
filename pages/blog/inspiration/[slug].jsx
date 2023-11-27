@@ -9,6 +9,7 @@ import path from "path";
 import { useEffect } from "react";
 import Breadcrumbs from "../../../src/app/components/breadcrumbs";
 import BlogTopGallery from "../../../src/app/components/blog-top-gallery";
+import BlogLink from "../../../src/app/components/blog-link";
 
 import "../../../src/app/style/globals.css";
 
@@ -25,6 +26,7 @@ const components = {
   //   // height and width are part of the props, so they get automatically passed here with {...props}
   //   <Image {...props} layout="responsive" loading="lazy" />
   // ),
+  BlogLink,
   BlogTopGallery,
   Head,
 };

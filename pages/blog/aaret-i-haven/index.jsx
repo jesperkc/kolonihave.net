@@ -1,12 +1,7 @@
 import styles from "/src/app/style/calendar-year-style.scss";
-import styles2 from "/src/app/style/style.scss";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import { serialize } from "next-mdx-remote/serialize";
 import Breadcrumbs from "../../../src/app/components/breadcrumbs";
-// import LabHewro from '@/components/lab-hero.component'
-// import Section from '@/components/section.component'
+import { getMonthlyMdxFiles } from "../../../lib/load-posts";
 
 function Garden(props) {
   const thismonth = new Date().getMonth();
@@ -55,35 +50,12 @@ function Garden(props) {
   );
 }
 
+const databaseFolder = "database/blog/aaret-i-haven/";
+
 export async function getStaticProps() {
-  // get all MDX files
-  const postFilePaths = fs.readdirSync("database/blog/aaret-i-haven/").filter((postFilePath) => {
-    return path.extname(postFilePath).toLowerCase() === ".mdx";
-  });
-
-  const postPreviews = {};
-
-  // read the frontmatter for each file
-  for (const postFilePath of postFilePaths) {
-    const postFile = fs.readFileSync(`database/blog/aaret-i-haven/${postFilePath}`, "utf8");
-
-    // serialize the MDX content to a React-compatible format
-    // and parse the frontmatter
-    const serializedPost = await serialize(postFile, {
-      parseFrontmatter: true,
-    });
-
-    postPreviews[serializedPost.frontmatter.slug] = {
-      ...serializedPost.frontmatter,
-      // add the slug to the frontmatter info
-      slug: postFilePath.replace(".mdx", ""),
-    };
-  }
-
+  const postPreviews = await getMonthlyMdxFiles(databaseFolder);
   return {
-    props: {
-      posts: postPreviews,
-    },
+    props: postPreviews,
     // enable ISR
     // revalidate: 60,
   };

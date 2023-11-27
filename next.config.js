@@ -20,7 +20,8 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   // Optionally, add any other Next.js config below
 
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
     config.module.rules.push({
       test: /\.svg$/i,
       // use: ['@svgr/webpack'],
@@ -46,6 +47,11 @@ const nextConfig = {
         },
       ],
     });
+    // if (!isServer) {
+    //   config.node = {
+    //     fs: "empty",
+    //   };
+    // }
     return config;
   },
 };
