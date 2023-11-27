@@ -24,6 +24,7 @@ export async function getMdxFiles(databaseFolder) {
     postPreviews.push({
       meta: serializedPost.frontmatter,
       // add the slug to the frontmatter info
+      url: `${databaseFolder}${postFilePath}`.replace(".mdx", "").replace("database/", ""),
       slug: postFilePath.replace(".mdx", ""),
     });
   }
