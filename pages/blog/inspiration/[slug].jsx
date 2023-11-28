@@ -26,6 +26,7 @@ const components = {
   //   // height and width are part of the props, so they get automatically passed here with {...props}
   //   <Image {...props} layout="responsive" loading="lazy" />
   // ),
+  Link,
   BlogLink,
   BlogTopGallery,
   Head,
@@ -152,7 +153,7 @@ export const getStaticPaths = async () => {
     .map((path) => path.replace(/\.mdx?$/, ""))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
-
+  console.log("paths", paths);
   return {
     paths,
     fallback: false,

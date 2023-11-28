@@ -1,0 +1,13 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+    path,rect { stroke: #000000; }
+    @media (prefers-color-scheme: dark) {
+      path,rect { stroke: #ffffff; }
+    }
+  </style>
+<path d="M106.857 55.333V112.203C106.857 115.509 104.299 118.19 101.143 118.19H26.8571C23.7012 118.19 21.1428 115.509 21.1428 112.203V55.333" stroke="black" stroke-width="6" stroke-linecap="round"/>
+<rect x="55.4287" y="38.1895" width="17.1429" height="22.8569" rx="5.71426" stroke="black" stroke-width="6"/>
+<path d="M124 61.0472C106.604 61.0472 80.9335 28.0985 69.6597 12.3536C67.049 8.70763 60.951 8.70764 58.3403 12.3537C47.0665 28.0985 21.3959 61.0472 4 61.0472" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 61.0469V69.6182" stroke="black" stroke-width="6" stroke-linecap="round"/>
+<path d="M124 61.0469V69.6182" stroke="black" stroke-width="6" stroke-linecap="round"/>
+</svg>
