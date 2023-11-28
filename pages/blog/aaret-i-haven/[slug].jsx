@@ -72,6 +72,9 @@ export default function PostPage({ source, meta }) {
         "--color": meta.color ? meta.color : "",
       }}
     >
+      <Head>
+        <title>Kolonihave.net - {meta.title} i haven</title>
+      </Head>
       <article>
         <Breadcrumbs crumbs={breadcrumbs} />
         {/* <ul className="calendar-year">

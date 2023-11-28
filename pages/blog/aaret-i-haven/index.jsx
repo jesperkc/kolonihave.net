@@ -2,6 +2,7 @@ import styles from "/src/app/style/calendar-year-style.scss";
 import Link from "next/link";
 import Breadcrumbs from "../../../src/app/components/breadcrumbs";
 import { getMonthlyMdxFiles } from "../../../lib/load-posts";
+import Head from "next/head";
 
 function Garden(props) {
   const thismonth = new Date().getMonth();
@@ -20,6 +21,9 @@ function Garden(props) {
 
   return (
     <main className={["calendar-year-grid", styles.mdx].join(" ")}>
+      <Head>
+        <title>Kolonihave.net - Året i haven</title>
+      </Head>
       <Breadcrumbs crumbs={breadcrumbs} />
       <h1 className="has-text-centered">Årets gang i kolonihaven</h1>
       <ul>

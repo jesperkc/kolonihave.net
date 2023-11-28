@@ -138,6 +138,9 @@ function Page(props) {
   const inspirationposts = props.inspiration.posts.slice(0, 5);
   return (
     <div>
+      <Head>
+        <title>Kolonihave.net</title>
+      </Head>
       <div className="hero" style={{ backgroundImage: `url(${props.heroes.urls[3]})` }}>
         <main>
           <div className="landingpage-grid">

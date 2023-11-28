@@ -68,6 +68,9 @@ export default function PostPage({ source, meta }) {
       className={["mdx"].join(" ")}
       // style={{ '--headerfont': bodyfont.style.fontFamily }}
     >
+      <Head>
+        <title>Kolonihave.net - {meta.title}</title>
+      </Head>
       <article>
         <Breadcrumbs crumbs={breadcrumbs} />
         <h1>{meta.title}</h1>

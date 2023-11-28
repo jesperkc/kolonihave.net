@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Breadcrumbs from "../../../src/app/components/breadcrumbs";
 import { getMdxFiles, sortBySeason } from "../../../lib/load-posts";
+import Head from "next/head";
 // import LabHewro from '@/components/lab-hero.component'
 // import Section from '@/components/section.component'
 
@@ -17,6 +18,9 @@ function Page(props) {
   ];
   return (
     <main>
+      <Head>
+        <title>Kolonihave.net - Inspiration</title>
+      </Head>
       <Breadcrumbs crumbs={breadcrumbs} />
       <h1>Inspiration til kolonihaven</h1>
       <br />

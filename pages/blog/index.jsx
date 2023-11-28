@@ -4,6 +4,7 @@ import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
+import Head from "next/head";
 // import LabHewro from '@/components/lab-hero.component'
 // import Section from '@/components/section.component'
 
@@ -11,6 +12,9 @@ function Page(props) {
   const months = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
   return (
     <main>
+      <Head>
+        <title>Kolonihave.net - Blog</title>
+      </Head>
       <h2>Inspiration</h2>
       <br />
       <ul className="dash-list">
