@@ -7,11 +7,11 @@ import Head from "next/head";
 import Link from "next/link";
 import path from "path";
 import { useEffect } from "react";
-import Breadcrumbs from "../../../src/app/components/breadcrumbs";
-import BlogTopGallery from "../../../src/app/components/blog-top-gallery";
-import BlogLink from "../../../src/app/components/blog-link";
+import Breadcrumbs from "/src/app/components/breadcrumbs";
+import BlogTopGallery from "/src/app/components/blog-top-gallery";
+import BlogLink from "/src/app/components/blog-link";
 
-import "../../../src/app/style/globals.css";
+import "/src/app/style/globals.css";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -156,7 +156,6 @@ export const getStaticPaths = async () => {
     .map((path) => path.replace(/\.mdx?$/, ""))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
-  console.log("paths", paths);
   return {
     paths,
     fallback: false,

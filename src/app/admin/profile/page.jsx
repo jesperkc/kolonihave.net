@@ -1,33 +1,42 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { getAuth, updateProfile } from "firebase/auth";
+// import { updateProfile } from "firebase/auth";
+import { useAuth } from "../context/AuthContext";
+// import { getAuth } from "../../../firebase";
+import { useRouter } from "next/navigation";
 import { updateDoc, doc, collection, getDocs, query, where, orderBy, deleteDoc } from "firebase/firestore";
-import { db } from "../firebase.config";
-import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase.config";
 import { toast } from "react-toastify";
-import ListingItem from "../components/ListingItem";
-import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
-import homeIcon from "../assets/svg/homeIcon.svg";
+import ListingItem from "../../components/ListingItem";
+import Link from "next/link";
 
 function Profile() {
-  const auth = getAuth();
+  const { user, updateUser } = useAuth();
+  // const auth = {
+  //   currentUser: {
+  //     uid: "uid",
+  //     displayName: "displayName",
+  //     email: "email",
+  //   },
+  // };
   const [loading, setLoading] = useState(true);
   const [listings, setListings] = useState(null);
   const [changeDetails, setChangeDetails] = useState(false);
-  const [formData, setFormData] = useState({
-    name: auth.currentUser.displayName,
-    email: auth.currentUser.email,
-  });
+  const [formData, setFormData] = useState({});
 
-  const { name, email } = formData;
-
-  const navigate = useNavigate();
+  const { displayName, email } = formData;
+  const router = useRouter();
 
   useEffect(() => {
+    setFormData({
+      displayName: user.displayName ?? "",
+      email: user.email,
+    });
     const fetchUserListings = async () => {
       const listingsRef = collection(db, "listings");
 
-      const q = query(listingsRef, where("userRef", "==", auth.currentUser.uid), orderBy("timestamp", "desc"));
+      const q = query(listingsRef, where("userRef", "==", user.uid), orderBy("timestamp", "desc"));
 
       const querySnap = await getDocs(q);
 
@@ -45,26 +54,24 @@ function Profile() {
     };
 
     fetchUserListings();
-  }, [auth.currentUser.uid]);
+  }, [user.uid]);
 
   const onLogout = () => {
     auth.signOut();
-    navigate("/");
+    router.push("/");
   };
 
   const onSubmit = async () => {
     try {
-      if (auth.currentUser.displayName !== name) {
+      if (user.displayName !== displayName) {
         // Update display name in fb
-        await updateProfile(auth.currentUser, {
-          displayName: name,
-        });
+        await updateUser(displayName);
 
         // Update in firestore
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        await updateDoc(userRef, {
-          name,
-        });
+        // const userRef = doc(db, "users", user.uid);
+        // await updateDoc(userRef, {
+        //   displayName,
+        // });
       }
     } catch (error) {
       console.log(error);
@@ -88,7 +95,7 @@ function Profile() {
     // }
   };
 
-  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`);
+  const onEdit = (listingId) => router.push(`/admin/edit/?id=${listingId}`);
 
   return (
     <div className="profile">
@@ -102,47 +109,31 @@ function Profile() {
       <main>
         <div className="profileDetailsHeader">
           <p className="profileDetailsText">Personlige oplysninger</p>
-          <p
-            className="changePersonalDetails"
+          <button
+            className="button"
             onClick={() => {
               changeDetails && onSubmit();
               setChangeDetails((prevState) => !prevState);
             }}
           >
-            {changeDetails ? "gem" : "ændre"}
-          </p>
+            {changeDetails ? "Gem oplysninger" : "Ret oplysninger"}
+          </button>
         </div>
 
         <div className="profileCard">
           <form>
-            <input
-              type="text"
-              id="name"
-              className={!changeDetails ? "profileName" : "profileNameActive"}
-              disabled={!changeDetails}
-              value={name}
-              onChange={onChange}
-            />
-            <input
-              type="email"
-              id="email"
-              className={!changeDetails ? "profileEmail" : "profileEmailActive"}
-              disabled={!changeDetails}
-              value={email}
-              onChange={onChange}
-            />
+            <input type="text" id="displayName" className={"input"} disabled={!changeDetails} value={displayName} onChange={onChange} />
+            <input type="email" id="email" className={"input"} disabled={!changeDetails} value={email} onChange={onChange} />
           </form>
         </div>
 
-        <Link to="/create-listing" className="createListing">
-          <img src={homeIcon} alt="home" />
-          <p>Sælg din kolonihave</p>
-          <img src={arrowRight} alt="arrow right" />
+        <Link href="/create-listing" className="button">
+          Sælg din kolonihave
         </Link>
 
         {!loading && listings?.length > 0 && (
           <>
-            <p className="listingText">Dine annoncer</p>
+            <h3>Dine annoncer</h3>
             <ul className="listingsList">
               {listings.map((listing) => (
                 <ListingItem

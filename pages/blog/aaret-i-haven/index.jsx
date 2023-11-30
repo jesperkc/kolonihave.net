@@ -1,7 +1,7 @@
 import styles from "/src/app/style/calendar-year-style.scss";
 import Link from "next/link";
-import Breadcrumbs from "../../../src/app/components/breadcrumbs";
-import { getMonthlyMdxFiles } from "../../../lib/load-posts";
+import Breadcrumbs from "/src/app/components/breadcrumbs";
+import { getMonthlyMdxFiles } from "/lib/load-posts";
 import Head from "next/head";
 
 function Garden(props) {

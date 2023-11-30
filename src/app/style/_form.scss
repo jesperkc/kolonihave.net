@@ -69,13 +69,55 @@
 //   @apply .text-gray-700;
 // }
 
-.btn {
+:root {
+  --inputBackgroundColorLight: #ddd7cd;
+  --inputBackgroundColorDark: #4c4d4a;
+  --inputBorderColorLight: #000;
+  --inputBorderColorDark: #b6bcaf;
+  --inputColorLight: #333333;
+  --inputColorDark: #f3e8d2;
+
+  --inputBackgroundColor: var(--inputBackgroundColorLight);
+  --inputBorderColor: var(--inputBorderColorLight);
+  --inputColor: var(--inputColorLight);
+
+  @media (prefers-color-scheme: dark) {
+    --inputDisabledBackgroundColor: var(--inputBackgroundColorDark);
+    --inputDisabledBorderColor: var(--inputBorderColorDark);
+    --inputDisabledColor: var(--inputColorDark);
+    --inputBackgroundColor: var(--inputBackgroundColorDark);
+    --inputBorderColor: var(--inputBorderColorDark);
+    --inputColor: var(--inputColorDark);
+  }
+}
+.select select[disabled],
+[disabled].textarea,
+[disabled].input,
+fieldset[disabled] .select select,
+.select fieldset[disabled] select,
+fieldset[disabled] .textarea,
+fieldset[disabled] .input {
+  background-color: var(--inputDisabledBackgroundColor);
+  border-color: var(--inputDisabledBorderColor);
+  color: var(--inputDisabledColor);
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.input {
+  background-color: var(--inputBackgroundColor);
+  border-color: var(--inputBorderColor);
+  color: var(--inputColor);
+}
+
+.button {
   border: 0;
   outline: none;
   padding: 10px 20px;
-  color: #ffffff;
   position: relative;
+  z-index: 1;
   border-radius: 14px;
+  margin: 2px 0;
 
   &:before,
   &:after {
