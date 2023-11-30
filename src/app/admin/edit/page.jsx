@@ -89,29 +89,28 @@ const EditAllotment = ({}) => {
   const id = searchParams?.get("id");
 
   useEffect(() => {
-    if (!allotment) {
-      load(id);
-    }
-  }, [id]);
+    const load = () => {
+      const fetchUserListings = async () => {
+        const listingsRef = collection(db, "listings");
+        const docRef = doc(db, "listings", `${id}`);
 
-  const load = () => {
-    const fetchUserListings = async () => {
-      const listingsRef = collection(db, "listings");
-      const docRef = doc(db, "listings", `${id}`);
-
-      const querySnap = await getDoc(docRef);
-      let listing = {
-        ...querySnap.data(),
+        const querySnap = await getDoc(docRef);
+        let listing = {
+          ...querySnap.data(),
+        };
+        console.log("listing", listing);
+        // const docRef = doc(db, "users", id);
+        // const snapshot = await getDoc(docRef);
+        _allotment(listing);
+        setLoading(false);
       };
-      console.log("listing", listing);
-      // const docRef = doc(db, "users", id);
-      // const snapshot = await getDoc(docRef);
-      _allotment(listing);
-      setLoading(false);
+
+      fetchUserListings();
     };
 
-    fetchUserListings();
-  };
+    load(id);
+  }, [id]);
+
   const save = async (event) => {
     event.preventDefault();
 

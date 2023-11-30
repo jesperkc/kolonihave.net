@@ -36,84 +36,89 @@ const tempallotment = {
   lng: 12.18981,
 };
 
-export default () => {
-  const [status, setStatus] = useState("loading");
-  const [allotments, _allotments] = useState([tempallotment]);
-  useEffect(() => {
-    let canceled = false;
-    if (status !== "loading") return;
-    // axios("/api/get-allotments").then((result) => {
-    //   if (canceled === true) return;
-
-    //   if (result.status !== 200) {
-    //     console.error("Error loading notes");
-    //     console.error(result);
-    //     return;
-    //   }
-    //  _allotments(result.data.notes);
-    setStatus("loaded");
-    //});
-
-    return () => {
-      canceled = true;
-    };
-  }, [status]);
-
-  const onClickAllotment = (allotment) => {
-    console.log("onClickAllotment", allotment);
-
-    navigate(`/allotment/${allotment._id}`, {
-      state: { modal: true },
-    });
-  };
-
-  return (
-    <MapComponent className="allotments-map">
-      {/* <Map
-				{...viewport}
-				// maxBounds={[
-				// 	[1, 53],
-				// 	[22, 59],
-				// ]}
-				className='map'> */}
-      {/* <ReactMapboxGlCluster data={kolonihaver} /> */}
-      {/* <Layer
-					type='circle'
-					id='marker'
-					paint={{
-						'circle-color': '#ff5200',
-						'circle-stroke-width': 1,
-						'circle-stroke-color': '#fff',
-						'circle-stroke-opacity': 1,
-						'circle-radius': 10,
-					}}>
-					{allotments &&
-						allotments.map(allotment => (
-							<Feature
-								coordinates={[allotment.lng, allotment.lat]}
-								onClick={() => {
-									onClickAllotment(allotment);
-								}}
-							/>
-						))}
-				</Layer> */}
-
-      {allotments &&
-        allotments.map((allotment) => (
-          <Marker
-            key={allotment._id}
-            coordinates={[allotment.lng, allotment.lat]}
-            anchor="bottom"
-            onClick={() => {
-              onClickAllotment(allotment);
-            }}
-          >
-            <Link href={`/allotment/${allotment._id}`}>
-              <div className="mapMarkerStyle" />
-            </Link>
-          </Marker>
-        ))}
-      {/* </Map> */}
-    </MapComponent>
-  );
+const Allotments = () => {
+  return <div>Allotments</div>;
 };
+export default Allotments;
+
+// export default () => {
+//   const [status, setStatus] = useState("loading");
+//   const [allotments, _allotments] = useState([tempallotment]);
+//   useEffect(() => {
+//     let canceled = false;
+//     if (status !== "loading") return;
+//     // axios("/api/get-allotments").then((result) => {
+//     //   if (canceled === true) return;
+
+//     //   if (result.status !== 200) {
+//     //     console.error("Error loading notes");
+//     //     console.error(result);
+//     //     return;
+//     //   }
+//     //  _allotments(result.data.notes);
+//     setStatus("loaded");
+//     //});
+
+//     return () => {
+//       canceled = true;
+//     };
+//   }, [status]);
+
+//   const onClickAllotment = (allotment) => {
+//     console.log("onClickAllotment", allotment);
+
+//     navigate(`/allotment/${allotment._id}`, {
+//       state: { modal: true },
+//     });
+//   };
+
+//   return (
+//     <MapComponent className="allotments-map">
+//       {/* <Map
+// 				{...viewport}
+// 				// maxBounds={[
+// 				// 	[1, 53],
+// 				// 	[22, 59],
+// 				// ]}
+// 				className='map'> */}
+//       {/* <ReactMapboxGlCluster data={kolonihaver} /> */}
+//       {/* <Layer
+// 					type='circle'
+// 					id='marker'
+// 					paint={{
+// 						'circle-color': '#ff5200',
+// 						'circle-stroke-width': 1,
+// 						'circle-stroke-color': '#fff',
+// 						'circle-stroke-opacity': 1,
+// 						'circle-radius': 10,
+// 					}}>
+// 					{allotments &&
+// 						allotments.map(allotment => (
+// 							<Feature
+// 								coordinates={[allotment.lng, allotment.lat]}
+// 								onClick={() => {
+// 									onClickAllotment(allotment);
+// 								}}
+// 							/>
+// 						))}
+// 				</Layer> */}
+
+//       {allotments &&
+//         allotments.map((allotment) => (
+//           <Marker
+//             key={allotment._id}
+//             coordinates={[allotment.lng, allotment.lat]}
+//             anchor="bottom"
+//             onClick={() => {
+//               onClickAllotment(allotment);
+//             }}
+//           >
+//             <Link href={`/allotment/${allotment._id}`}>
+//               <div className="mapMarkerStyle" />
+//             </Link>
+//           </Marker>
+//         ))}
+//       {/* </Map> */}
+//     </MapComponent>
+//   );
+// };

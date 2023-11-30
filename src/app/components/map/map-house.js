@@ -1,6 +1,8 @@
 import React from "react";
 import HouseSVG from "../../assets/pin.svg";
 
-export default () => {
+const HouseMarker = () => {
   return <HouseSVG className="house" />;
 };
+
+export default HouseMarker;

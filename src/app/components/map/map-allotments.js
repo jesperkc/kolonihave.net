@@ -2,7 +2,7 @@ import React from "react";
 import { GeoJSONLayer } from "react-mapbox-gl";
 import kolonihavehouseforenings from "../../data/kolonihaver.json";
 
-export default () => {
+export const defaultMapAllotments = () => {
   return (
     <>
       <GeoJSONLayer data={kolonihavehouseforenings} fillLayout={fillLayout} fillPaint={fillPaint} linePaint={linePaint} />

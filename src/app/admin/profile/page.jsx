@@ -54,7 +54,7 @@ function Profile() {
     };
 
     fetchUserListings();
-  }, [user.uid]);
+  }, [user]);
 
   const onLogout = () => {
     auth.signOut();
