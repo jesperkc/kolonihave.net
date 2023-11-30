@@ -1,3 +1,4 @@
+"use client";
 import { useAuth } from "../context/AuthContext";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";

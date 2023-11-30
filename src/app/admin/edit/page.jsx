@@ -42,7 +42,7 @@ function setTextareaHeight(el) {
   el.style.height = `${Math.max(el.scrollHeight, 100)}px`;
 }
 
-const EditAllotment = ({ allotment_data }) => {
+const EditAllotment = ({}) => {
   const [status, _status] = useState("");
   const [geolocationEnabled, setGeolocationEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -84,7 +84,7 @@ const EditAllotment = ({ allotment_data }) => {
   // const params = useParams();
   // const navigate = useNavigate();
 
-  const [allotment, _allotment] = useState(allotment_data);
+  const [allotment, _allotment] = useState(null);
 
   const id = searchParams?.get("id");
 
