@@ -90,7 +90,7 @@ const EditAllotment = ({}) => {
 
   useEffect(() => {
     if (!allotment) {
-      load();
+      load(id);
     }
   }, [id]);
 

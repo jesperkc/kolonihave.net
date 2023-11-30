@@ -12,6 +12,7 @@ import BlogTopGallery from "/src/app/components/blog-top-gallery";
 import BlogLink from "/src/app/components/blog-link";
 
 import "/src/app/style/globals.css";
+import Image from "next/image";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -76,7 +77,7 @@ export default function PostPage({ source, meta }) {
         <h1>{meta.title}</h1>
 
         {meta.desc && <h2>{meta.desc}</h2>}
-        {meta.image && <img src={meta.image} alt={"Illustration"} />}
+        {meta.image && <Image src={meta.image} alt={"Illustration"} />}
         <MDXRemote {...source} components={components} />
         {/* <Section
         backgroundColor={

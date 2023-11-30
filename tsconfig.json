@@ -19,6 +19,14 @@
     ],
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "src/app/components/nav.jsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/app/components/nav.jsx",
+    "src/app/admin/layout.jsx",
+    "src/app/admin/edit/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }

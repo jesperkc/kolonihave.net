@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getMdxFiles, getMdx, getUrls, sortBySeason } from "../lib/load-posts";
 import LinkArrowSvg from "/src/assets/svg/icon-linkarrow.svg";
+import LeafsSvg from "/public/images/illustrations/colored-illustration-leafs.svg";
 
 function Custom404(props) {
   const inspirationposts = props.inspiration.posts;
@@ -40,7 +41,8 @@ function Custom404(props) {
         <div className="grid-column column-right"></div>
       </div>
 
-      <img src="/images/illustrations/colored-illustration-leafs.svg" style={{ marginTop: 60 }} />
+      {/* <img src="/images/illustrations/colored-illustration-leafs.svg" style={{ marginTop: 60 }} alt="illustration" /> */}
+      <LeafsSvg style={{ marginTop: 60, maxWidth: "100%", height: "auto" }} />
     </main>
   );
 }

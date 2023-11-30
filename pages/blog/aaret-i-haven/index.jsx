@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "/src/app/components/breadcrumbs";
 import { getMonthlyMdxFiles } from "/lib/load-posts";
 import Head from "next/head";
+import Image from "next/image";
 
 function Garden(props) {
   const thismonth = new Date().getMonth();
@@ -41,7 +42,7 @@ function Garden(props) {
               className={thismonth === i ? "current-month superellipse" : "superellipse"}
             >
               <Link href={`aaret-i-haven/${current.slug}`}>
-                <img src={current.image} />
+                <Image src={current.image} alt="illustration" />
               </Link>
               <Link href={`aaret-i-haven/${current.slug}`} className="btn">
                 <strong>{current.title}</strong>
