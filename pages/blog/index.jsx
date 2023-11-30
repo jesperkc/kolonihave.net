@@ -40,6 +40,20 @@ function Page(props) {
           );
         })}
       </ul>
+      <br />
+      <br />
+      <h2>Grøntsager</h2>
+      <br />
+      <ul className="dash-list">
+        {props.groentsager.posts &&
+          props.groentsager.posts.map((post, i) => {
+            return (
+              <li key={post.title}>
+                <Link href={`/blog/groentsager/${post.slug}`}>{post.title}</Link>
+              </li>
+            );
+          })}
+      </ul>
     </main>
   );
 }
@@ -49,6 +63,10 @@ export async function getStaticProps() {
     {
       id: "inspiration",
       path: "database/blog/inspiration/",
+    },
+    {
+      id: "groentsager",
+      path: "database/blog/groentsager/",
     },
     // {
     //   id: "calendaryear",
