@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from "/src/app/style/calendar-year-style.scss";
 import Link from "next/link";
 import Breadcrumbs from "/src/app/components/breadcrumbs";
@@ -42,7 +43,7 @@ function Garden(props) {
               className={thismonth === i ? "current-month superellipse" : "superellipse"}
             >
               <Link href={`aaret-i-haven/${current.slug}`}>
-                <Image src={current.image} alt="illustration" />
+                <img src={current.image} alt="illustration" />
               </Link>
               <Link href={`aaret-i-haven/${current.slug}`} className="btn">
                 <strong>{current.title}</strong>

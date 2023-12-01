@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote";
@@ -21,7 +22,7 @@ const components = {
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
   // TestComponent: dynamic(() => import('../../components/TestComponent')),
-  img: (props) => <Image {...props} layout="responsive" loading="lazy" alt="illustration" />,
+  img: (props) => <img {...props} layout="responsive" loading="lazy" alt="illustration" />,
 };
 
 const POSTS_PATH = path.join(process.cwd(), "database", "blog", "aaret-i-haven");
@@ -119,7 +120,7 @@ export default function PostPage({ source, meta }) {
         <h1>{meta.title} i haven</h1>
         <h2>{meta.desc}</h2>
         {/* <Image src={meta.image} alt={"Illustration"} layout="responsive" loading="lazy" width={100} height={100} /> */}
-        <Image src={meta.image} alt={"Illustration"} />
+        <img src={meta.image} alt={"Illustration"} />
         <MDXRemote {...source} components={components} />
         {/* <Section
         backgroundColor={

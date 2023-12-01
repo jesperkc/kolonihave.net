@@ -69,11 +69,6 @@
     margin-bottom: 2rem;
     // border-bottom: 3px solid var(--color);
   }
-  article > ul,
-  article > ol {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
 
   article > img {
     width: 40%;
@@ -88,19 +83,67 @@
     width: 20%;
   }
 
-  ol {
-    padding-left: 5rem;
+  article > ul,
+  article > ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
-  li::marker,
-  li > h3 {
-    display: flex;
-    font-size: 2rem;
-    font-family: var(--headerfont), serif;
 
+  ol {
+    padding-left: 30px;
+    --marginBottom: 1rem;
+  }
+  ol:has(li > h3),
+  ul:has(li > h3) {
+    padding-left: 3rem;
+  }
+  ol:has(li > h4),
+  ul:has(li > h4) {
+    padding-left: 2rem;
+  }
+  ol li:has(h3) {
+    --marginBottom: 3rem;
+    --markerSize: 2rem;
+  }
+  ol li:has(h4) {
+    --marginBottom: 2rem;
+    --markerSize: 1.5rem;
+  }
+  ol li {
+    margin-bottom: var(--marginBottom);
+  }
+  ul li:has(h3) {
+    --markerSize: 3rem;
+  }
+  ul li:has(h4) {
+    --markerSize: 2rem;
+  }
+  ul li::marker {
+    content: "— ";
+  }
+  ul li:has(h3)::marker,
+  ul li:has(h4)::marker {
+    font-size: var(--markerSize);
+    font-family: var(--headerfont), serif;
     color: var(--headlineColor);
   }
-  li {
-    margin-bottom: 3rem;
+  ol li:has(h3)::marker,
+  ol li:has(h4)::marker,
+  ol li > h3,
+  ol li > h4 {
+    display: flex;
+    font-size: var(--markerSize);
+    font-family: var(--headerfont), serif;
+    color: var(--headlineColor);
+  }
+
+  ul {
+    padding-left: 30px;
+    list-style: disc;
+
+    li {
+      padding-bottom: 1rem;
+    }
   }
 
   .calendar-year {
