@@ -63,7 +63,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "start": "next dev",
+    "start": "next dev -p 4000",
     "build": "next build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
