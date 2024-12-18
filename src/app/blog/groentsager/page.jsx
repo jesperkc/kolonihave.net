@@ -12,7 +12,6 @@ export const metadata = {
 
 async function Page() {
   const { posts } = await getMdxFiles(databaseFolder);
-  console.log("posts", posts);
   const breadcrumbs = [
     {
       title: "Blog",

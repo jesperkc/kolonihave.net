@@ -16,7 +16,6 @@ async function Page() {
 
   const { posts } = data;
 
-  console.log("posts", posts);
   const breadcrumbs = [
     {
       title: "Blog",
