@@ -1,9 +1,11 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
-package = "@netlify/plugin-nextjs"
 
 [plugins.inputs]
 exclude = [
   # By file Path
   './out/kolonihaver-til-salg.html',
 ]
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
