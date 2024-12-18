@@ -2,7 +2,8 @@
   background-color: inherit;
 
   --headlineColor: var(--headlineColorLight, --basecolor);
-  @media (prefers-color-scheme: dark) {
+  [data-theme="dark"] {
+    //@media (prefers-color-scheme: dark) {
     --headlineColor: var(--headlineColorDark, --basecolor);
   }
 
@@ -124,7 +125,7 @@
   ul li:has(h3)::marker,
   ul li:has(h4)::marker {
     font-size: var(--markerSize);
-    font-family: var(--headerfont), serif;
+    font-family: var(--font-fauna-one), serif;
     color: var(--headlineColor);
   }
   ol li:has(h3)::marker,
@@ -133,7 +134,7 @@
   ol li > h4 {
     display: flex;
     font-size: var(--markerSize);
-    font-family: var(--headerfont), serif;
+    font-family: var(--font-fauna-one), serif;
     color: var(--headlineColor);
   }
 

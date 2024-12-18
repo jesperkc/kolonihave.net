@@ -25,8 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/components/nav.jsx",
-    "src/app/admin/layout.jsx",
-    "src/app/admin/edit/page.jsx"
+    "src/app/unused_profile/edit/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

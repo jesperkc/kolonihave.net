@@ -1,31 +1,37 @@
 import Link from "next/link";
-import HouseSvg from "/src/assets/svg/icon-house.svg";
-import ToolSvg from "/src/assets/svg/icon-tool.svg";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/navigation";
+import { auth, db } from "../firebase.config";
 import WobblyLine from "./wobbly-line";
+import { PersonIcon24, ToolIcon24, BirdHouseIcon24, ChatIcon24 } from "../../../components/icons";
+import { Flex } from "@chakra-ui/react";
 
-const Nav = () => {
+const Nav = ({ user }) => {
+  // const [user] = useAuthState(auth);
   return (
     <nav>
-      <div>
-        <ul>
-          <li>
-            <Link href={"/"}>
-              <HouseSvg />
-            </Link>
-          </li>
-          {/* <li>
-              <Link href={"/kolonihaver-til-salg/"}>Kolonihaver til salg</Link>
-            </li> */}
-          <li className="logo">
-            <Link href={"/"}>Kolonihave.net</Link>
-          </li>
-          <li>
-            <Link href={"/blog/"}>
-              <ToolSvg />
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <Flex>
+        <Flex gap={"20px"}>
+          <Link href={"/"}>
+            <BirdHouseIcon24 />
+          </Link>
+          {/* <Link href={"/forum/"}>
+            <ChatIcon24 />
+          </Link> */}
+        </Flex>
+
+        <div className="logo">
+          <Link href={"/"}>Kolonihave.net</Link>
+        </div>
+        <Flex gap={"20px"}>
+          {/* <Link href={"/profil/"}>
+            <PersonIcon24 />
+          </Link> */}
+          <Link href={"/blog/"}>
+            <ToolIcon24 />
+          </Link>
+        </Flex>
+      </Flex>
       <WobblyLine className={"wobbly"} />
     </nav>
   );

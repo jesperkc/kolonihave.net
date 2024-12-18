@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 // import { useIdentityContext } from "react-netlify-identity-widget";
 // import ImageGallery from "./image-gallery";
 import EditMapComponent from "./map";
+import Loading from "../components/loading";
 
 const TextArea = (props) => {
   const ref = useRef();
@@ -439,7 +440,7 @@ const EditAllotment = ({ allotment_data }) => {
           </button>
         </form>
       ) : (
-        "Loading"
+        <Loading />
       )}
     </>
   );

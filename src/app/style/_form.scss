@@ -81,7 +81,8 @@
   --inputBorderColor: var(--inputBorderColorLight);
   --inputColor: var(--inputColorLight);
 
-  @media (prefers-color-scheme: dark) {
+  [data-theme="dark"] {
+    // @media (prefers-color-scheme: dark) {
     --inputDisabledBackgroundColor: var(--inputBackgroundColorDark);
     --inputDisabledBorderColor: var(--inputBorderColorDark);
     --inputDisabledColor: var(--inputColorDark);
@@ -90,6 +91,16 @@
     --inputColor: var(--inputColorDark);
   }
 }
+
+.label {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.label small {
+  font-size: 0.75rem;
+}
+
 .select select[disabled],
 [disabled].textarea,
 [disabled].input,
@@ -104,41 +115,64 @@ fieldset[disabled] .input {
   opacity: 0.5;
 }
 
-.input {
-  background-color: var(--inputBackgroundColor);
-  border-color: var(--inputBorderColor);
+// .input,
+// .textarea {
+//   background-color: var(--inputBackgroundColor);
+//   border-color: var(--inputBorderColor);
+//   color: var(--inputColor);
+// }
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--inputColor);
+  opacity: 0.5;
+}
+
+.radio:hover,
+.checkbox:hover {
   color: var(--inputColor);
 }
 
 .button {
-  border: 0;
-  outline: none;
-  padding: 10px 20px;
-  position: relative;
-  z-index: 1;
-  border-radius: 14px;
-  margin: 2px 0;
+  // border: 0;
+  // outline: none;
+  // padding: 10px 20px;
+  // position: relative;
+  // z-index: 1;
+  // margin: 2px 0;
+  // font-family: inherit;
 
+  // &:before,
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   z-index: -1;
+  // }
+  // &:before {
+  //   border-radius: 4px/50%;
+  //   background-color: inherit;
+  //   top: 2px;
+  //   bottom: 2px;
+  //   right: -2px;
+  //   left: -2px;
+  // }
+  // &:after {
+  //   border-radius: 50%/4px;
+  //   background-color: inherit;
+  //   top: -2px;
+  //   bottom: -2px;
+  //   right: 2px;
+  //   left: 2px;
+  // }
+}
+
+.button-outline {
+  border: 1px solid;
+  padding: 0 1rem;
+  line-height: 2.2rem;
+  border-radius: var(--chakra-radii-md);
   &:before,
   &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-  }
-  &:before {
-    border-radius: 4px/50%;
-    background-color: inherit;
-    top: 2px;
-    bottom: 2px;
-    right: -2px;
-    left: -2px;
-  }
-  &:after {
-    border-radius: 50%/4px;
-    background-color: inherit;
-    top: -2px;
-    bottom: -2px;
-    right: 2px;
-    left: 2px;
+    box-shadow: 0px 0px 0px 1px;
   }
 }

@@ -2,8 +2,9 @@ import React from "react";
 import { GeoJSONLayer } from "react-mapbox-gl";
 import kolonihavehouseforenings from "../../data/kolonihaver.json";
 
-export const defaultMapAllotments = () => {
+export const MapAllotments = () => {
   return (
+    // <GeoJSONLayer data={kolonihavehouseforenings} fillLayout={fillLayout} fillPaint={fillPaint} linePaint={linePaint} />
     <>
       <GeoJSONLayer data={kolonihavehouseforenings} fillLayout={fillLayout} fillPaint={fillPaint} linePaint={linePaint} />
       <GeoJSONLayer data={kolonihavehouseforenings} symbolLayout={symbolLayout} symbolPaint={symbolPaint} />
@@ -24,7 +25,7 @@ const linePaint = {
 };
 
 const symbolLayout = {
-  "text-field": "{name}",
+  "text-field": "{name}{@id}",
   "text-font": ["Open Sans Regular", "Arial Unicode MS Bold"],
   "text-size": 14,
   "text-offset": [0, 0.6],

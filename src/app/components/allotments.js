@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 //import axios from "axios";
 import ReactMapboxGl, { Marker } from "react-mapbox-gl";
 import Link from "next/link";
+import { MapAllotments } from "./map/map-allotments";
 import MapComponent from "./map";
 // const { token, styles } = {
 // 	token: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA',
@@ -37,7 +38,11 @@ const tempallotment = {
 };
 
 const Allotments = () => {
-  return <div>Allotments</div>;
+  return (
+    <MapComponent className="allotments-map">
+      <MapAllotments />
+    </MapComponent>
+  );
 };
 export default Allotments;
 

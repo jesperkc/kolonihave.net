@@ -38,14 +38,16 @@
       justify-content: flex-end;
     }
     strong {
-      font-family: var(--headerfont);
+      font-family: var(--font-fauna-one);
     }
     a {
       position: relative;
       text-decoration: none;
       z-index: 2;
       color: var(--lightcolor);
-      @media (prefers-color-scheme: dark) {
+
+      [data-theme="dark"] {
+        // @media (prefers-color-scheme: dark) {
         color: var(--darkcolor);
       }
     }
@@ -70,7 +72,8 @@
     .current-month .button {
       background-color: var(--lightcolor);
       color: white;
-      @media (prefers-color-scheme: dark) {
+      [data-theme="dark"] {
+        // @media (prefers-color-scheme: dark) {
         background-color: var(--darkcolor);
         color: #333333;
       }

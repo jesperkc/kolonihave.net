@@ -1,0 +1,13 @@
+.forum-layout {
+  gap: 30px;
+  > div {
+    padding: 30px 0;
+  }
+  > div:nth-child(1) {
+    width: 250px;
+    border-right: 1px solid black;
+  }
+  > div:nth-child(2) {
+    flex: 1;
+  }
+}

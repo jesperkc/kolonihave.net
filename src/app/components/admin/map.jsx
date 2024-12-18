@@ -6,7 +6,6 @@ import MapHouse from "../map/map-house";
 // import 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css';
 
 import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
-import kolonihavehouseforenings from "../../data/kolonihaver.json";
 
 // tslint:disable-next-line:no-var-requires
 const { token, styles } = {

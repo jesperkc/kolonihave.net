@@ -1,0 +1,24 @@
+.admin-table {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+
+  &.admin-users-table {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  &.admin-forums-table {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  &.admin-threads-table {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .table-row {
+    display: contents;
+  }
+  .table-col {
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+  }
+}
