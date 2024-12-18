@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -25,7 +29,10 @@
     "**/*.ts",
     "**/*.tsx",
     "src/app/components/nav.jsx",
-    "src/app/unused_profile/edit/page.jsx"
+    "src/app/unused_profile/edit/page.jsx",
+    "out/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
