@@ -6,6 +6,3 @@ exclude = [
   # By file Path
   './out/kolonihaver-til-salg.html',
 ]
-
-[[plugins]]
-package = "@netlify/plugin-nextjs"
