@@ -18,7 +18,8 @@ import AdminHeader from "../../admin-header";
 //   return props;
 // };
 
-async function ForumAdminIndex({ searchParams: { forumId } }: { searchParams: { forumId: string } }) {
+async function ForumAdminIndex({ params }: { params: Promise<{ forumId: string }> }) {
+  const { forumId } = await params;
   const forum = forumId ? await getForum(forumId) : {};
 
   const breadcrumbs = [
