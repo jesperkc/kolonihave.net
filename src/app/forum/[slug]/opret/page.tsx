@@ -27,7 +27,7 @@ export async function generateStaticParams() {
     slug: forum.slug,
     id: forum.id,
   }));
-  console.log("paths", paths);
+  // console.log("paths", paths);
   return paths;
 }
 

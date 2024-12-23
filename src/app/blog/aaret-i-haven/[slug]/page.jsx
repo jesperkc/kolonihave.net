@@ -74,7 +74,7 @@ export default async function PostPage({ params }) {
 }
 
 const getPost = (slug) => {
-  console.log("slug", slug);
+  // console.log("slug", slug);
   const postFilePath = path.join(POSTS_PATH, `${slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 

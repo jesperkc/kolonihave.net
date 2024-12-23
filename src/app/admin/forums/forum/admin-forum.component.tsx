@@ -38,7 +38,7 @@ function ForumAdminComponent({ forum }) {
   const { loadForums } = useForum();
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
-    console.log(values);
+    // console.log(values);
 
     await saveForum({ id: forum.id, name: values.name, slug: values.slug, user: user })
       .then((response) => {

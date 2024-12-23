@@ -71,14 +71,14 @@ export const getForum = async (uid?: string) => {
 };
 
 export const getForumBySlug = async (slug: string) => {
-  console.log("getForumBySlug slug", slug);
+  // console.log("getForumBySlug slug", slug);
   try {
     const forum = await firebaseAdmin.firestore().collection("communities").where("slug", "==", slug).get();
 
     let returndata;
 
     forum.forEach((f) => {
-      console.log("getForumBySlug f", f.id, f.data());
+      // console.log("getForumBySlug f", f.id, f.data());
       const data = f.data();
 
       returndata = {
@@ -87,13 +87,13 @@ export const getForumBySlug = async (slug: string) => {
         slug: data.slug,
       };
     });
-    console.log("getForumBySlug", returndata);
+    // console.log("getForumBySlug", returndata);
     return returndata;
   } catch (err) {
     // either the `token` cookie didn't exist
     // or token verification failed
     // either way: redirect to the login page
-    console.log("getForumBySlug err", err);
+    // console.log("getForumBySlug err", err);
 
     // `as never` prevents inference issues
     // with InferGetServerSidePropsType.
@@ -142,7 +142,7 @@ export const getUser = async (uid: string) => {
     .auth()
     .getUsers([{ uid: uid }])
     .then((getUsersResult) => {
-      console.log("getUsersResult:", getUsersResult);
+      // console.log("getUsersResult:", getUsersResult);
       getUsersResult.users.forEach((userRecord) => {
         console.log(userRecord);
         returnUsersResult = userRecord;
@@ -175,7 +175,7 @@ export const getUsers = async () => {
       //   // { providerId: 'google.com', providerUid: 'google_uid4' },
       // ])
       .then((getUsersResult) => {
-        console.log("getUsersResult:", getUsersResult);
+        // console.log("getUsersResult:", getUsersResult);
         getUsersResult.users.forEach((userRecord) => {
           console.log(userRecord);
           returnUsersResult.push(userRecord);
@@ -280,7 +280,7 @@ export const getAiUsers = async () => {
       .listUsers()
 
       .then((getUsersResult) => {
-        console.log("getUsersResult:", getUsersResult);
+        // console.log("getUsersResult:", getUsersResult);
         getUsersResult.users.forEach((userRecord) => {
           console.log(userRecord);
           usersData.push({

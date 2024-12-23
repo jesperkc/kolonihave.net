@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
-const withMDX = require("@next/mdx")();
 
 const nextConfig = {
   // output: "export",
