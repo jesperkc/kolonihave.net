@@ -4,7 +4,7 @@ import nookies from "nookies";
 import { firebaseAdmin } from "../src/app/firebase-admin.config";
 
 export const serversideAuthInApp = async (ctx) => {
-  const tokencookie = cookies().get("token") as unknown as string;
+  const tokencookie = (await cookies()).get("token") as unknown as string;
   console.log("serversideAuth", tokencookie);
 
   try {

@@ -3,7 +3,8 @@ import { getAiUsers, getForum, getUsers } from "../../../../../functions/servers
 import AdminHeader from "../../../../admin-header";
 import ThreadAdminNewComponent from "./admin-new-thread.component";
 
-async function ProfileIndex({ searchParams: { forumId, threadId } }: { searchParams: { forumId: string; threadId: string } }) {
+async function ProfileIndex({ params }: { params: Promise<{ forumId: string }> }) {
+  const {forumId} = await params;
   const forum = await getForum(forumId);
   const users = await getAiUsers();
   const breadcrumbs = [

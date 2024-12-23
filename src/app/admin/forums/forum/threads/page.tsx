@@ -7,7 +7,8 @@ import ThreadsAdminComponent from "./admin-threads.component";
 import AdminHeader from "../../../admin-header";
 import Link from "next/link";
 
-async function ProfileIndex({ searchParams: { forumId } }: { searchParams: { forumId: string } }) {
+async function ProfileIndex({ params }: { params: Promise<{ forumId: string }> }) {
+  const {forumId} = await params;
   const threads = await getThreads({ forumId: forumId });
   const forum = await getForum(forumId);
   const breadcrumbs = [

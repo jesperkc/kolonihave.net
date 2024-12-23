@@ -3,7 +3,7 @@ import nookies from "nookies";
 import { firebaseAdmin } from "../firebase-admin.config";
 
 async function getCookieData() {
-  const cookieData = cookies().get("token");
+  const cookieData = (await cookies()).get("token");
   return new Promise((resolve) =>
     setTimeout(() => {
       resolve(cookieData);

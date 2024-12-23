@@ -3,7 +3,8 @@ import Breadcrumbs from "../../../components/breadcrumbs";
 import UserAdminComponent from "./admin-user.component";
 import AdminHeader from "../../admin-header";
 
-async function EditUserIndex({ searchParams: { id } }: { searchParams: { id: string } }) {
+async function EditUserIndex({ params }: { params: Promise<{ id: string }> }) {
+  const {id } = await params;
   const user = id ? await getUser(id) : {};
 
   // const [data, setData] = useState(user);
