@@ -3366,11 +3366,6 @@
   resolved "https://registry.yarnpkg.com/@netlify/node-cookies/-/node-cookies-0.1.0.tgz#dda912ba618527695cf519fafa221c5e6777c612"
   integrity sha512-OAs1xG+FfLX0LoRASpqzVntVV/RpYkgpI0VrUnw2u0Q1qiZUzcPffxRK8HF3gc4GjuhG5ahOEMJ9bswBiZPq0g==
 
-"@netlify/plugin-nextjs@^5.9.1":
-  version "5.9.1"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.9.1.tgz#430c13cbc7c68fbbee9e363d53b207d1ccbaa7c5"
-  integrity sha512-aHw/vUNKqUml795b1iCTc1CcyNHwM9BaF03HSPr6VoUgm4kSCmoDbLKdiKdm1FsvbHi+Ajeb+YoohWp16z1NHQ==
-
 "@netlify/serverless-functions-api@1.12.3":
   version "1.12.3"
   resolved "https://registry.yarnpkg.com/@netlify/serverless-functions-api/-/serverless-functions-api-1.12.3.tgz#cf1abc7ca2c9d3f920fea458c44bdda4d3e614e4"
