@@ -46,6 +46,7 @@ $github-invert: findColorInvert($github);
 // @use "navigation";
 
 :root {
+  --font-fauna-one: "Fauna One", serif;
   --headerfont: serif;
   --backgroundColorLight: #ddd7cd;
   --backgroundColorDark: #2c3027;
@@ -396,10 +397,8 @@ ul.dash-list {
   background-color: var(--backgroundColor);
   color: var(--color);
 
-  box-shadow: $border-width $border-width var(--borderColor),
-    -$border-width (-$border-width) var(--borderColor),
-    -$border-width $border-width var(--borderColor),
-    $border-width (-$border-width) var(--borderColor);
+  box-shadow: $border-width $border-width var(--borderColor), -$border-width (-$border-width) var(--borderColor),
+    -$border-width $border-width var(--borderColor), $border-width (-$border-width) var(--borderColor);
 
   h5 {
     margin-bottom: 1rem;
@@ -423,8 +422,7 @@ ul.dash-list {
     bottom: 2px;
     right: -$border-width;
     left: -$border-width;
-    box-shadow: -$border-width 0px var(--borderColor),
-      $border-width 0px var(--borderColor);
+    box-shadow: -$border-width 0px var(--borderColor), $border-width 0px var(--borderColor);
     // border-top-color: transparent;
     // border-top-width: $border-corner-width;
     // border-bottom-color: transparent;
@@ -439,8 +437,7 @@ ul.dash-list {
     bottom: -$border-width;
     right: 2px;
     left: 2px;
-    box-shadow: 0px (-$border-width) var(--borderColor),
-      0px $border-width var(--borderColor);
+    box-shadow: 0px (-$border-width) var(--borderColor), 0px $border-width var(--borderColor);
     // border-top-color: inherit;
     // border-bottom-color: inherit;
     // border-left-color: transparent;
