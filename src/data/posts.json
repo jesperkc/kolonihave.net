@@ -1,0 +1,396 @@
+{
+	"monthlypost": [
+		{
+			"title": "Januar",
+			"desc": "Vigtige skridt forbereder forårets livlige grøde og blomster....",
+			"backgroundColor": "#c3e3e5",
+			"color": "#0c315a",
+			"image": "/images/blog/january-garden-illustration.png",
+			"slug": "januar"
+		},
+		{
+			"title": "Februar",
+			"desc": "Giv din have en forårsopfriskning med disse februarhave tips.",
+			"backgroundColor": "#c3e3e5",
+			"color": "#0c315a",
+			"image": "/images/blog/february-garden-illustration.png",
+			"slug": "februar"
+		},
+		{
+			"title": "Marts",
+			"desc": "Vårens ankomst markeres med vigtige opgaver.",
+			"backgroundColor": "#f5ffc2",
+			"color": "#db691b",
+			"image": "/images/blog/spring1-garden-illustration.png",
+			"slug": "marts"
+		},
+		{
+			"title": "April",
+			"desc": "Såning, beskæring og forberedelse til blomstringens fest.",
+			"backgroundColor": "#f5ffc2",
+			"color": "#db691b",
+			"image": "/images/blog/spring2-garden-illustration.png",
+			"slug": "april"
+		},
+		{
+			"title": "Maj",
+			"desc": "Maj bringer liv til haven",
+			"backgroundColor": "#f5ffc2",
+			"color": "#db691b",
+			"image": "/images/blog/spring3-garden-illustration.png",
+			"slug": "maj"
+		},
+		{
+			"title": "Juni",
+			"desc": "Tips til en frodig og sund vækstsæson.",
+			"backgroundColor": "#bbddb1",
+			"color": "#871145",
+			"image": "/images/blog/summer1-garden-illustration.png",
+			"slug": "juni"
+		},
+		{
+			"title": "Juli",
+			"desc": "Pleje, høst og omsorg for frodige planter.",
+			"backgroundColor": "#bbddb1",
+			"color": "#871145",
+			"image": "/images/blog/summer2-garden-illustration.png",
+			"slug": "juli"
+		},
+		{
+			"title": "August",
+			"desc": "Sådan bevarer du sensommerens skønhed og forbereder efterår.",
+			"backgroundColor": "#bbddb1",
+			"color": "#871145",
+			"image": "/images/blog/summer3-garden-illustration.png",
+			"slug": "august"
+		},
+		{
+			"title": "September",
+			"desc": "Tips til pleje før efteråret tager over.",
+			"backgroundColor": "#eec86f",
+			"color": "#B44330",
+			"image": "/images/blog/fall1-garden-illustration.png",
+			"slug": "september"
+		},
+		{
+			"title": "Oktober",
+			"desc": "Tips til pleje før efteråret tager over.",
+			"backgroundColor": "#eec86f",
+			"color": "#B44330",
+			"image": "/images/blog/fall-44437-2.png",
+			"slug": "oktober"
+		},
+		{
+			"title": "November",
+			"desc": "Essentielle trin for vinterens forberedelse og vækst.",
+			"backgroundColor": "#eec86f",
+			"color": "#B44330",
+			"image": "/images/blog/december-garden-illustration.png",
+			"slug": "november"
+		},
+		{
+			"title": "December",
+			"desc": "Vigtige tips til vinterens pleje og forberedelse.",
+			"backgroundColor": "#c3e3e5",
+			"color": "#0c315a",
+			"image": "/images/blog/fall2-garden-illustration.png",
+			"slug": "december"
+		}
+	],
+	"inspiration": [
+		{
+			"title": "Forår i haven",
+			"desc": "Sådan kommer du godt i gang med haven tidligt på året",
+			"season": 1,
+			"slug": "foraar-i-haven"
+		},
+		{
+			"title": "Sjov i haven med børnevenlige haveprojekter",
+			"season": 2,
+			"slug": "boernevenlige-haveprojekter"
+		},
+		{
+			"title": "En guide til bivenlige haver",
+			"desc": "De bedste blomster til bier",
+			"season": 2,
+			"slug": "de-bedste-blomster-til-bier"
+		},
+		{
+			"title": "De bedste salattyper at dyrke om sommeren",
+			"season": 2,
+			"slug": "de-bedste-salattyper"
+		},
+		{
+			"title": "Sådan laver du hjemmelavet insektmiddel",
+			"season": 2,
+			"slug": "hjemmelavet-insektmiddel"
+		},
+		{
+			"title": "Pampasgræs",
+			"season": 2,
+			"slug": "pampas-graes"
+		},
+		{
+			"title": "Sådan dyrker du tomater i potter",
+			"season": 2,
+			"slug": "tomater-i-potter"
+		},
+		{
+			"title": "Beskyt dine haveredskaber om vinteren",
+			"season": 4,
+			"slug": "beskyt-dine-haveredskaber"
+		},
+		{
+			"title": "Nyd haven i julemåneden",
+			"season": 4,
+			"slug": "haven-i-december"
+		},
+		{
+			"title": "Tilføj juleglæde til dine krukker",
+			"desc": "Fem smukke planter til julens dekoration",
+			"season": 4,
+			"slug": "jule-krukker"
+		},
+		{
+			"title": "Vinter beskyttelse af din have",
+			"season": 4,
+			"slug": "vinter-beskyttelse"
+		},
+		{
+			"title": "Grønkål om vinteren",
+			"season": 4,
+			"slug": "vinter-groenkaal"
+		},
+		{
+			"title": "Hvidløg om vinteren",
+			"season": 4,
+			"slug": "vinter-hvidloeg"
+		},
+		{
+			"title": "Spinat om vinteren",
+			"season": 4,
+			"slug": "vinter-spinat"
+		},
+		{
+			"title": "Urter om vinteren",
+			"season": 4,
+			"slug": "vinter-urter"
+		},
+		{
+			"title": "Vinterhavearbejde",
+			"season": 4,
+			"slug": "vinterhavearbejde"
+		}
+	],
+	"quicktips": [
+		{
+			"slug": "beskaering"
+		},
+		{
+			"slug": "beskyt-planter-mod-kulde"
+		},
+		{
+			"slug": "bevar-fugtighed"
+		},
+		{
+			"slug": "brug-kompost"
+		},
+		{
+			"slug": "drypvandingssystem"
+		},
+		{
+			"slug": "giv-plads"
+		},
+		{
+			"slug": "maanefaser"
+		},
+		{
+			"slug": "organisk-have"
+		},
+		{
+			"slug": "skadedyr"
+		},
+		{
+			"slug": "sundt-mikroklima"
+		}
+	],
+	"groentsager": [
+		{
+			"title": "Agurker",
+			"sow": null,
+			"harvest": null,
+			"slug": "agurker"
+		},
+		{
+			"title": "Artiskokker",
+			"slug": "artiskokker"
+		},
+		{
+			"title": "Asparges",
+			"sow": "4,5",
+			"harvest": "5,6",
+			"slug": "asparges"
+		},
+		{
+			"title": "Aubergine",
+			"sow": "1,3",
+			"harvest": "7,10",
+			"slug": "aubergine"
+		},
+		{
+			"title": "Bladbede",
+			"tags": "mangold, sølvbede",
+			"slug": "bladbede"
+		},
+		{
+			"title": "Bladselleri",
+			"slug": "bladselleri"
+		},
+		{
+			"title": "Blomkål",
+			"sow": null,
+			"harvest": null,
+			"slug": "blomkaal"
+		},
+		{
+			"title": "Bønner",
+			"slug": "boenner"
+		},
+		{
+			"title": "Broccoli",
+			"sow": null,
+			"harvest": null,
+			"slug": "broccoli"
+		},
+		{
+			"title": "Brøndkarse",
+			"slug": "broendkarse"
+		},
+		{
+			"title": "Chili peber",
+			"slug": "chili-peber"
+		},
+		{
+			"title": "Courgette",
+			"slug": "courgetter"
+		},
+		{
+			"title": "Fennikel",
+			"slug": "fennikel"
+		},
+		{
+			"title": "Græskar",
+			"slug": "graeskar"
+		},
+		{
+			"title": "Gulerødder",
+			"sow": null,
+			"harvest": null,
+			"slug": "guleroedder"
+		},
+		{
+			"title": "Havrerod",
+			"slug": "havrerod"
+		},
+		{
+			"title": "Hestebønner",
+			"sow": "3,5",
+			"harvest": "6,8",
+			"slug": "hesteboenner"
+		},
+		{
+			"title": "Hvidløg",
+			"slug": "hvidloeg"
+		},
+		{
+			"title": "Kål",
+			"sow": "Året rundt",
+			"harvest": "60 til 120 dage",
+			"slug": "kaal"
+		},
+		{
+			"title": "Kålrabi",
+			"slug": "kaalrabi"
+		},
+		{
+			"title": "Kartofler",
+			"slug": "kartofler"
+		},
+		{
+			"title": "Knoldselleri",
+			"sow": null,
+			"harvest": null,
+			"slug": "knoldselleri"
+		},
+		{
+			"title": "Løg",
+			"slug": "loeg"
+		},
+		{
+			"title": "Majroer",
+			"slug": "majroer"
+		},
+		{
+			"title": "Pak choi",
+			"slug": "pak-choi"
+		},
+		{
+			"title": "Pastinak",
+			"slug": "pastinak"
+		},
+		{
+			"title": "Peberfrugt",
+			"slug": "peberfrugt"
+		},
+		{
+			"title": "Porre",
+			"slug": "porre"
+		},
+		{
+			"title": "Radiser",
+			"sow": null,
+			"harvest": null,
+			"slug": "radiser"
+		},
+		{
+			"title": "Rødbede",
+			"sow": "3,8",
+			"harvest": "5,10",
+			"slug": "roedbede"
+		},
+		{
+			"title": "Rosenkål",
+			"sow": "1,12",
+			"harvest": "1,12",
+			"slug": "rosenkaal"
+		},
+		{
+			"title": "Rucola",
+			"sow": null,
+			"harvest": null,
+			"slug": "rucola"
+		},
+		{
+			"title": "Skalotteløg",
+			"slug": "skalotteloeg"
+		},
+		{
+			"title": "Spinat",
+			"slug": "spinat"
+		},
+		{
+			"title": "Squash",
+			"slug": "squash"
+		},
+		{
+			"title": "Svampe",
+			"sow": null,
+			"harvest": null,
+			"slug": "svampe"
+		},
+		{
+			"title": "Tomater",
+			"slug": "tomater"
+		}
+	]
+}

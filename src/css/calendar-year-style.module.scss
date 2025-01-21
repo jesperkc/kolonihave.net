@@ -1,0 +1,72 @@
+// main {
+//   max-width: 1024px;
+//   margin: 0 auto;
+//   min-height: 100vh;
+//   padding: 2rem;
+// }
+
+.calendar-year-grid {
+  margin-bottom: 50px;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    justify-items: center;
+    justify-content: center;
+    // border: 10px solid #00947e;
+    // border-radius: 200px;
+    margin: 0 auto;
+    // width: 80%;
+    // padding: 40px;
+    padding: 40px 0;
+    gap: 40px;
+
+    li {
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    strong {
+      font-family: var(--font-fauna-one);
+    }
+    a {
+      position: relative;
+      text-decoration: none;
+      z-index: 2;
+      color: var(--lightcolor);
+
+      [data-theme="dark"] {
+        // @media (prefers-color-scheme: dark) {
+        color: var(--darkcolor);
+      }
+    }
+
+
+    .button {
+      display: inline-block;
+    }
+    .current-month .button {
+      background-color: var(--lightcolor);
+      color: white;
+      [data-theme="dark"] {
+        // @media (prefers-color-scheme: dark) {
+        background-color: var(--darkcolor);
+        color: #333333;
+      }
+      // transform: translateY(-30px);
+    }
+
+
+    @media screen and (width >= 450px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (width >= 650px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (width >= 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

@@ -1,0 +1,331 @@
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+
+:root {
+  --line-height: 1.2rem;
+  --border-thickness: 2px;
+  --text-color: black;
+  font-optical-sizing: auto;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.dark {
+  :root {
+    --text-color: white;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  text-decoration-thickness: var(--border-thickness);
+}
+
+*::selection {
+  @apply bg-black text-white dark:bg-white dark:text-black;
+}
+
+.button {
+  border: var(--border-thickness) solid;
+  padding:
+    calc(var(--line-height) / 2 - var(--border-thickness)) calc(1ch - var(--border-thickness));
+  margin: 0;
+  height: calc(var(--line-height) * 2);
+  width: auto;
+  overflow: visible;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+
+  @apply select-none bg-white dark:bg-black px-1h shadow-box active:shadow-none active:translate-x-[3px] active:translate-y-[3px];
+}
+
+.button:focus:not(:active) {
+  --border-thickness: 3px;
+  outline: none;
+}
+
+hr {
+  @apply h-2v block relative text-black dark:text-white border-none my-1v;
+}
+
+hr:after {
+  @apply block absolute left-0 h-0 w-full border-black dark:border-white;
+  content: "";
+  top: calc(var(--line-height) - var(--border-thickness));
+  border-top: calc(var(--border-thickness) * 3) double;
+}
+
+.jump-text:hover>.jump-text {
+  animation: jump 0.25s ease-in-out;
+  animation-delay: var(--animation-delay);
+}
+
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+details {
+  border: var(--border-thickness) solid var(--text-color);
+  padding: calc(var(--line-height) - var(--border-thickness)) 1ch;
+  margin-bottom: var(--line-height);
+  margin-top: var(--line-height);
+}
+
+summary {
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+details[open] summary {
+  margin-bottom: var(--line-height);
+}
+
+details ::marker {
+  display: inline-block;
+  content: '▶';
+  margin: 0;
+}
+
+details[open] ::marker {
+  content: '▼';
+}
+
+details :last-child {
+  margin-bottom: 0;
+}
+
+
+/* DITHER ANIMATION */
+.dither {
+  background-repeat: repeat;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  image-rendering: optimizeSpeed;
+  /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;
+  /* Firefox                        */
+  image-rendering: -o-crisp-edges;
+  /* Opera                          */
+  image-rendering: -webkit-optimize-contrast;
+  /* Chrome (and eventually Safari) */
+  image-rendering: pixelated;
+  /* Universal support since 2021   */
+  image-rendering: optimize-contrast;
+  /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;
+
+  pointer-events: none;
+}
+
+.dark {
+  .dither {
+    filter: invert(1)
+  }
+  .wave-image {
+    filter: invert(1)
+  }
+}
+
+.dither-1 {
+  background-image: url(/images/dither_light_3.png);
+}
+
+.dither-2 {
+  background-image: url(/images/dither_light_3.png);
+  background-position: 50px 50px;
+}
+
+.dither-3 {
+  background-image: url(/images/dither_light_3.png);
+  background-position: 100px 100px;
+}
+
+
+.tree,
+.tree ul {
+  position: relative;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: var(--line-height);
+}
+
+.tree ul {
+  margin: 0;
+}
+
+.tree ul li {
+  position: relative;
+  padding-left: 1.5ch;
+  margin-left: 1.5ch;
+  border-left: var(--border-thickness) solid var(--text-color);
+}
+
+.tree ul li:before {
+  position: absolute;
+  display: block;
+  top: calc(var(--line-height) / 2);
+  left: 0;
+  content: "";
+  width: 1ch;
+  border-bottom: var(--border-thickness) solid var(--text-color);
+}
+
+.tree ul li:last-child {
+  border-left: none;
+}
+
+.tree ul li:last-child:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  content: "";
+  height: calc(var(--line-height) / 2);
+  border-left: var(--border-thickness) solid var(--text-color);
+}
+
+
+/* DEBUG UTILITIES */
+
+.debug .debug-grid {
+  --line-height: 1.2rem;
+  --text-color: #000000;
+  --background-color: #FFFFFF;
+  --color: color-mix(in srgb, var(--text-color) 10%, var(--background-color) 90%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
+  background-size: 1ch var(--line-height);
+  margin: 0;
+}
+
+code:not(pre code) {
+  @apply bg-black text-white dark:bg-white dark:text-black px-1h;
+  @apply selection:dark:bg-black selection:dark:text-white selection:bg-white selection:text-black;
+}
+
+.debug .off-grid {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.debug-toggle-label {
+  text-align: right;
+}
+
+.debug img {
+  /* border: 1px solid black; */
+}
+
+
+.formkit-form {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.formkit-form [data-style="clean"] {
+  @apply !pt-2v !px-0 !pb-1v;
+}
+
+.formkit-fields {
+  @apply !m-0;
+}
+
+.formkit-field {
+  @apply !m-0 !mr-2h;
+}
+
+.formkit-input {
+  border: var(--border-thickness) solid !important;
+  padding:
+    calc(var(--line-height) / 2 - var(--border-thickness)) calc(1ch - var(--border-thickness)) !important;
+  margin: 0 !important;
+  height: calc(var(--line-height) * 2) !important;
+  width: 100% !important;
+  overflow: visible !important;
+  line-height: normal !important;
+  -webkit-font-smoothing: inherit !important;
+  -moz-osx-font-smoothing: inherit !important;
+  -webkit-appearance: none !important;
+  @apply !font-medium;
+}
+
+.formkit-input:focus:not(:active) {
+  --border-thickness: 3px;
+  outline: none;
+}
+
+.formkit-submit {
+  border: var(--border-thickness) solid !important;
+  padding:
+    calc(var(--line-height) / 2 - var(--border-thickness)) calc(1ch - var(--border-thickness)) !important;
+  margin: 0 !important;
+  height: calc(var(--line-height) * 2) !important;
+  width: auto !important;
+  overflow: visible !important;
+  line-height: normal !important;
+  -webkit-font-smoothing: inherit !important;
+  -moz-osx-font-smoothing: inherit !important;
+  -webkit-appearance: none !important;
+  @apply !select-none !bg-white !text-black !px-1h !shadow-box !py-0;
+}
+
+.formkit-submit:active {
+  @apply !shadow-none !translate-x-[3px] !translate-y-[3px]
+}
+
+.formkit-alert-success {
+  border-width: 0 !important;
+  @apply !bg-transparent !text-black !m-0 !p-0 !font-bold;
+}
+
+.dark {
+  .formkit-input {
+    @apply !border-white !bg-black !text-white;
+  }
+
+  .formkit-submit {
+    @apply !bg-black !text-white;
+  }
+
+  .formkit-alert-success {
+    @apply !text-white;
+  }
+}
+
+
+.formkit-submit span {
+  padding: 0 !important;
+}
+
+.formkit-submit:hover span {
+  background-color: transparent !important;
+}
+
+.formkit-submit:focus:not(:active) {
+  --border-thickness: 3px !important;
+  outline: none !important;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* <div id="a6d9b30e24" class="formkit-alert formkit-alert-success" data-element="success" data-group="alert">Success! Check your email to confirm the subscription.</div> */
