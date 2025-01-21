@@ -6,7 +6,7 @@ import LinkArrowSvg from "/src/assets/svg/icon-linkarrow.svg";
 import VegestableIllustrationSvg from "/public/images/illustrations/illustration-vegestables.svg";
 
 const backgroundImage =
-  "/public/images/heroes/hero-cosy-communal-garden-in-wintertime-with-bonfire-96141.jpg";
+  "/images/heroes/hero-cosy-communal-garden-in-wintertime-with-bonfire-96141.jpg";
 const Homepage = () => {
   const inspirationposts = findSectionPosts("inspiration")?.slice(0, 5);
   const currentMonthlyPost = getMonthlyPost();
