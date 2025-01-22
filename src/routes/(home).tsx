@@ -1,12 +1,10 @@
 import { For } from "solid-js";
 import { findSectionPosts, getMonthlyPost, posts } from "~/data/posts";
-import { Posts } from "~/components/Posts";
-import MonthlyBlog from "~/components/monthly-blog";
+import MonthlyBlog from "~/components/blog/monthly-blog";
 import LinkArrowSvg from "/src/assets/svg/icon-linkarrow.svg";
 import VegestableIllustrationSvg from "/public/images/illustrations/illustration-vegestables.svg";
 
-const backgroundImage =
-  "/images/heroes/hero-cosy-communal-garden-in-wintertime-with-bonfire-96141.jpg";
+const backgroundImage = "/images/heroes/hero-cosy-communal-garden-in-wintertime-with-bonfire-96141.jpg";
 const Homepage = () => {
   const inspirationposts = findSectionPosts("inspiration")?.slice(0, 5);
   const currentMonthlyPost = getMonthlyPost();
@@ -36,9 +34,7 @@ const Homepage = () => {
                   <For each={inspirationposts}>
                     {(item, index) => (
                       <li>
-                        <a href={`/blog/inspiration/${item.slug}`}>
-                          {item.title}
-                        </a>
+                        <a href={`/blog/inspiration/${item.slug}`}>{item.title}</a>
                       </li>
                     )}
                   </For>

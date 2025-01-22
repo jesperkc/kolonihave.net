@@ -1,16 +1,15 @@
 import { useParams, type RouteSectionProps } from "@solidjs/router";
 import { For } from "solid-js";
 import { findSectionPosts } from "~/data/posts";
-import Breadcrumbs, { TBreadcrumb } from "./breadcrumbs";
+import Breadcrumbs, { TBreadcrumb } from "../breadcrumbs";
 import { findSection, allSections, findSections } from "~/data/sections";
 import { Section } from "~/types";
+import YearPageIndex from "./aaret-i-haven-index";
 
 const BlogSection = (props: RouteSectionProps<unknown>) => {
   const params = useParams();
 
-  const sections: Section[] | undefined = params.section
-    ? findSections(params.section)
-    : allSections;
+  const sections: Section[] | undefined = params.section ? findSections(params.section) : allSections;
 
   const breadcrumbs: TBreadcrumb[] = [
     {
@@ -25,16 +24,17 @@ const BlogSection = (props: RouteSectionProps<unknown>) => {
       slug: sections[0].slug,
     });
   }
+  console.log("BlogSectionList section", params.section);
 
   return (
     <main>
-      {breadcrumbs && breadcrumbs.length > 1 && (
-        <Breadcrumbs crumbs={breadcrumbs} />
-      )}
+      {breadcrumbs && breadcrumbs.length > 1 && <Breadcrumbs crumbs={breadcrumbs} />}
 
-      <For each={sections}>
-        {(section) => <BlogSectionList section={section} />}
-      </For>
+      {params.section !== "aaret-i-haven" ? (
+        <For each={sections}>{(section) => <BlogSectionList section={section} />}</For>
+      ) : (
+        <YearPageIndex />
+      )}
     </main>
   );
 };

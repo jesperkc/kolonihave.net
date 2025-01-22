@@ -8,6 +8,8 @@ export type Post = {
   featuredImageDesc?: string;
   desc: string;
   index: number;
+  color?: string;
+  backgroundColor?: string;
 };
 
 export type Tag = {

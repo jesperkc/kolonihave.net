@@ -1,21 +1,8 @@
 // solid-refresh
-import {
-  Component,
-  createEffect,
-  createMemo,
-  createSignal,
-  lazy,
-  Show,
-  Suspense,
-} from "solid-js";
+import { Component, createEffect, createMemo, createSignal, lazy, Show, Suspense } from "solid-js";
 
-import { markdownComponents, PostImage } from "~/components/Markdown";
-import {
-  cache,
-  createAsync,
-  RouteSectionProps,
-  useParams,
-} from "@solidjs/router";
+import { markdownComponents, PostImage } from "~/components/blog/Markdown";
+import { cache, createAsync, RouteSectionProps, useParams } from "@solidjs/router";
 import MDXArticle from "~/components/blog/mdx";
 import Breadcrumbs, { TBreadcrumb } from "~/components/breadcrumbs";
 import BlogTopGallery from "~/components/blog/blog-top-gallery";
@@ -80,9 +67,7 @@ const BlogPost = (props: RouteSectionProps<unknown>) => {
           <h1>{meta()?.title}</h1>
           {meta()?.desc && <h2>{meta()?.desc}</h2>}
           {meta()?.image && <img src={meta()?.image} alt={"Illustration"} />}
-          <MDXProvider components={markdownComponents}>
-            {props.children}
-          </MDXProvider>
+          <MDXProvider components={markdownComponents}>{props.children}</MDXProvider>
         </MDXArticle>
 
         {/* <div class="mt-3v flex flex-col gap-1v">

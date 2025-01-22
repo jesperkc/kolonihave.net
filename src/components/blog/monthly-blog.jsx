@@ -1,4 +1,4 @@
-import styles from "../css/monthly-blog.module.scss";
+import styles from "../../css/monthly-blog.module.scss";
 
 function MonthlyBlog(props) {
   console.log("props", props);

@@ -5,7 +5,7 @@ import { createSignal, onCleanup, onMount, Suspense } from "solid-js";
 import "./css/globals.css";
 import "./css/style.scss";
 import { MetaProvider, Title } from "@solidjs/meta";
-import BlogSection from "./components/blog-section";
+import BlogSection from "./components/blog/blog-section";
 import Layout from "./components/layout";
 
 export default function App() {
